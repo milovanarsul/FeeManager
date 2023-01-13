@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIButton{
-    func initializeIcon(image: UIImage? = nil, backgroundImage: UIImage? = nil,  backgroundColor: UIColor? = .clear, contentInsets: NSDirectionalEdgeInsets? = nil){
+    func initializeIcon(image: UIImage? = nil, backgroundImage: UIImage? = nil,  backgroundColor: UIColor? = .clear, contentInsets: NSDirectionalEdgeInsets? = nil, tintColour: UIColor? = nil){
         var configuration = UIButton.Configuration.plain()
         
         if let backgroundImage = backgroundImage {
@@ -34,6 +34,11 @@ extension UIButton{
         }
         
         self.configuration = configuration
-        self.tintColor = .black
+        
+        if let tintColour = tintColour{
+            self.tintColor = tintColour
+        } else {
+            self.tintColor = .black
+        }
     }
 }

@@ -25,14 +25,22 @@ class MainPageViewController: UIPageViewController{
     }
     
     fileprivate func createViewControllers(){
-        let homeViewController = UIViewController()
-        homeViewController.view.backgroundColor = .blue
+        let homeViewController = HomeViewController()
         pages.append(homeViewController)
+        
+        let analyticsViewController = UIViewController()
+        analyticsViewController.view.backgroundColor = .yellow
+        pages.append(analyticsViewController)
     }
 }
 
 extension MainPageViewController: UIPageViewControllerDelegate{
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        
+    }
+}
+
+extension MainPageViewController: NavigationBarDelegate{
+    func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection) {
+        goToIndex(pageIndex: pageIndex, direction: direction, pages: pages)
     }
 }

@@ -23,9 +23,15 @@ class EmbedView{
         viewController.removeFromParent()
     }
     
+    func onboardingPageViewController(parent: OnboardingViewController, container: UIView){
+        let child  = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        embed(parent: parent, container: container, child: child, previous: parent.children.first)
+    }
+    
     func mainPageViewController(parent: MainViewController, container: UIView){
         let child = MainPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
+        delegates.navigationBar = child
     }
 }
 

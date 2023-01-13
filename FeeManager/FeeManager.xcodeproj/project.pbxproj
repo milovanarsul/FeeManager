@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		346779F02971A731002D2A79 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346779EF2971A731002D2A79 /* UILabel.swift */; };
 		349A4E4829705EDA0052800B /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349A4E4729705EDA0052800B /* UIButton.swift */; };
 		34D0103C2970409D00258959 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0103B2970409D00258959 /* AppDelegate.swift */; };
 		34D0103E2970409D00258959 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0103D2970409D00258959 /* SceneDelegate.swift */; };
@@ -27,9 +28,24 @@
 		34D0106D297055CD00258959 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 34D0106C297055CD00258959 /* FirebaseDatabase */; };
 		34D0106F297055CD00258959 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 34D0106E297055CD00258959 /* FirebaseFirestore */; };
 		34D01071297055CD00258959 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 34D01070297055CD00258959 /* FirebaseStorage */; };
+		34D692692971568F007B3F40 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D692682971568F007B3F40 /* Delegates.swift */; };
+		34D6926C29715CD4007B3F40 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6926B29715CD4007B3F40 /* Enums.swift */; };
+		34D6926F29715FA5007B3F40 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6926E29715FA5007B3F40 /* HomeViewController.swift */; };
+		34D692722971608A007B3F40 /* HomeViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D692712971608A007B3F40 /* HomeViewTableViewCell.swift */; };
+		34D6927629716D5A007B3F40 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6927529716D5A007B3F40 /* OnboardingPageViewController.swift */; };
+		34D6927829716EBC007B3F40 /* OnboardingGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6927729716EBC007B3F40 /* OnboardingGeneralViewController.swift */; };
+		34D6927A29718FE5007B3F40 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6927929718FE5007B3F40 /* OnboardingViewController.swift */; };
+		34D6928329719F3A007B3F40 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D6927C29719F37007B3F40 /* IBMPlexSans-Bold.ttf */; };
+		34D6928429719F3A007B3F40 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D6927D29719F38007B3F40 /* IBMPlexSans-Medium.ttf */; };
+		34D6928529719F3A007B3F40 /* IBMPlexSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D6927E29719F38007B3F40 /* IBMPlexSans-Thin.ttf */; };
+		34D6928629719F3A007B3F40 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D6927F29719F38007B3F40 /* IBMPlexSans-SemiBold.ttf */; };
+		34D6928729719F3A007B3F40 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D6928029719F39007B3F40 /* IBMPlexSans-Regular.ttf */; };
+		34D6928829719F3A007B3F40 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D6928129719F3A007B3F40 /* IBMPlexSans-Light.ttf */; };
+		34D6928929719F3A007B3F40 /* IBMPlexSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D6928229719F3A007B3F40 /* IBMPlexSans-Italic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		346779EF2971A731002D2A79 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		349A4E4729705EDA0052800B /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		34D010382970409D00258959 /* FeeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D0103B2970409D00258959 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +62,20 @@
 		34D0105F29704FE000258959 /* PageViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerDataSource.swift; sourceTree = "<group>"; };
 		34D010612970516F00258959 /* EmbedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedView.swift; sourceTree = "<group>"; };
 		34D01063297054C200258959 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		34D692682971568F007B3F40 /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
+		34D6926B29715CD4007B3F40 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		34D6926E29715FA5007B3F40 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		34D692712971608A007B3F40 /* HomeViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTableViewCell.swift; sourceTree = "<group>"; };
+		34D6927529716D5A007B3F40 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		34D6927729716EBC007B3F40 /* OnboardingGeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingGeneralViewController.swift; sourceTree = "<group>"; };
+		34D6927929718FE5007B3F40 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		34D6927C29719F37007B3F40 /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
+		34D6927D29719F38007B3F40 /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
+		34D6927E29719F38007B3F40 /* IBMPlexSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Thin.ttf"; sourceTree = "<group>"; };
+		34D6927F29719F38007B3F40 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		34D6928029719F39007B3F40 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
+		34D6928129719F3A007B3F40 /* IBMPlexSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Light.ttf"; sourceTree = "<group>"; };
+		34D6928229719F3A007B3F40 /* IBMPlexSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Italic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,11 +116,13 @@
 			children = (
 				34D0103B2970409D00258959 /* AppDelegate.swift */,
 				34D0103D2970409D00258959 /* SceneDelegate.swift */,
+				34D692682971568F007B3F40 /* Delegates.swift */,
 				34D010542970486A00258959 /* Extensions */,
 				34D0105E29704FC700258959 /* Helpers */,
-				34D01057297048BB00258959 /* Data */,
-				34D0103F2970409D00258959 /* MainViewController.swift */,
-				34D0105A29704F7700258959 /* MainPageViewController.swift */,
+				34D01057297048BB00258959 /* Resources */,
+				34D6927429716C65007B3F40 /* Main */,
+				34D6927329716C24007B3F40 /* Onboarding */,
+				34D6927029716077007B3F40 /* Home Page */,
 				34D0104F297043D600258959 /* Navigation Bar */,
 				34D010462970409F00258959 /* LaunchScreen.storyboard */,
 				34D010492970409F00258959 /* Info.plist */,
@@ -114,16 +146,18 @@
 				34D0105829704DF500258959 /* UIViewController.swift */,
 				34D0105C29704FA800258959 /* UIPageViewController.swift */,
 				349A4E4729705EDA0052800B /* UIButton.swift */,
+				346779EF2971A731002D2A79 /* UILabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		34D01057297048BB00258959 /* Data */ = {
+		34D01057297048BB00258959 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				34D010442970409F00258959 /* Assets.xcassets */,
+				34D6927B29719F03007B3F40 /* Fonts */,
 			);
-			path = Data;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		34D0105E29704FC700258959 /* Helpers */ = {
@@ -131,8 +165,51 @@
 			children = (
 				34D0105F29704FE000258959 /* PageViewControllerDataSource.swift */,
 				34D010612970516F00258959 /* EmbedView.swift */,
+				34D6926B29715CD4007B3F40 /* Enums.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		34D6927029716077007B3F40 /* Home Page */ = {
+			isa = PBXGroup;
+			children = (
+				34D6926E29715FA5007B3F40 /* HomeViewController.swift */,
+				34D692712971608A007B3F40 /* HomeViewTableViewCell.swift */,
+			);
+			path = "Home Page";
+			sourceTree = "<group>";
+		};
+		34D6927329716C24007B3F40 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				34D6927929718FE5007B3F40 /* OnboardingViewController.swift */,
+				34D6927529716D5A007B3F40 /* OnboardingPageViewController.swift */,
+				34D6927729716EBC007B3F40 /* OnboardingGeneralViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		34D6927429716C65007B3F40 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				34D0103F2970409D00258959 /* MainViewController.swift */,
+				34D0105A29704F7700258959 /* MainPageViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		34D6927B29719F03007B3F40 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				34D6927C29719F37007B3F40 /* IBMPlexSans-Bold.ttf */,
+				34D6928229719F3A007B3F40 /* IBMPlexSans-Italic.ttf */,
+				34D6928129719F3A007B3F40 /* IBMPlexSans-Light.ttf */,
+				34D6927D29719F38007B3F40 /* IBMPlexSans-Medium.ttf */,
+				34D6928029719F39007B3F40 /* IBMPlexSans-Regular.ttf */,
+				34D6927F29719F38007B3F40 /* IBMPlexSans-SemiBold.ttf */,
+				34D6927E29719F38007B3F40 /* IBMPlexSans-Thin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,9 +281,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34D6928829719F3A007B3F40 /* IBMPlexSans-Light.ttf in Resources */,
+				34D6928929719F3A007B3F40 /* IBMPlexSans-Italic.ttf in Resources */,
+				34D6928729719F3A007B3F40 /* IBMPlexSans-Regular.ttf in Resources */,
+				34D6928329719F3A007B3F40 /* IBMPlexSans-Bold.ttf in Resources */,
 				34D010482970409F00258959 /* LaunchScreen.storyboard in Resources */,
+				34D6928629719F3A007B3F40 /* IBMPlexSans-SemiBold.ttf in Resources */,
 				34D010452970409F00258959 /* Assets.xcassets in Resources */,
 				34D01064297054C200258959 /* GoogleService-Info.plist in Resources */,
+				34D6928529719F3A007B3F40 /* IBMPlexSans-Thin.ttf in Resources */,
+				34D6928429719F3A007B3F40 /* IBMPlexSans-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,14 +301,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34D6927829716EBC007B3F40 /* OnboardingGeneralViewController.swift in Sources */,
 				34D010622970516F00258959 /* EmbedView.swift in Sources */,
 				34D010562970487700258959 /* UIView.swift in Sources */,
 				34D0105B29704F7700258959 /* MainPageViewController.swift in Sources */,
 				34D010402970409D00258959 /* MainViewController.swift in Sources */,
+				34D692692971568F007B3F40 /* Delegates.swift in Sources */,
+				34D6926F29715FA5007B3F40 /* HomeViewController.swift in Sources */,
+				346779F02971A731002D2A79 /* UILabel.swift in Sources */,
+				34D6927A29718FE5007B3F40 /* OnboardingViewController.swift in Sources */,
 				34D0106029704FE000258959 /* PageViewControllerDataSource.swift in Sources */,
 				34D0105929704DF500258959 /* UIViewController.swift in Sources */,
+				34D692722971608A007B3F40 /* HomeViewTableViewCell.swift in Sources */,
+				34D6926C29715CD4007B3F40 /* Enums.swift in Sources */,
 				34D0103C2970409D00258959 /* AppDelegate.swift in Sources */,
 				34D0103E2970409D00258959 /* SceneDelegate.swift in Sources */,
+				34D6927629716D5A007B3F40 /* OnboardingPageViewController.swift in Sources */,
 				349A4E4829705EDA0052800B /* UIButton.swift in Sources */,
 				34D01053297045BA00258959 /* NavigationBarView.swift in Sources */,
 				34D0105D29704FA800258959 /* UIPageViewController.swift in Sources */,
