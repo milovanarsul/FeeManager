@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		340564432973F40500A5CCF1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340564422973F40500A5CCF1 /* UIColor.swift */; };
+		340564452973F49400A5CCF1 /* NSLayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340564442973F49400A5CCF1 /* NSLayoutConstraints.swift */; };
 		346779F02971A731002D2A79 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346779EF2971A731002D2A79 /* UILabel.swift */; };
 		349A4E4829705EDA0052800B /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349A4E4729705EDA0052800B /* UIButton.swift */; };
 		34D0103C2970409D00258959 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0103B2970409D00258959 /* AppDelegate.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		340564422973F40500A5CCF1 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		340564442973F49400A5CCF1 /* NSLayoutConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraints.swift; sourceTree = "<group>"; };
 		346779EF2971A731002D2A79 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		349A4E4729705EDA0052800B /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		34D010382970409D00258959 /* FeeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +151,8 @@
 				34D0105C29704FA800258959 /* UIPageViewController.swift */,
 				349A4E4729705EDA0052800B /* UIButton.swift */,
 				346779EF2971A731002D2A79 /* UILabel.swift */,
+				340564422973F40500A5CCF1 /* UIColor.swift */,
+				340564442973F49400A5CCF1 /* NSLayoutConstraints.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -307,9 +313,11 @@
 				34D0105B29704F7700258959 /* MainPageViewController.swift in Sources */,
 				34D010402970409D00258959 /* MainViewController.swift in Sources */,
 				34D692692971568F007B3F40 /* Delegates.swift in Sources */,
+				340564452973F49400A5CCF1 /* NSLayoutConstraints.swift in Sources */,
 				34D6926F29715FA5007B3F40 /* HomeViewController.swift in Sources */,
 				346779F02971A731002D2A79 /* UILabel.swift in Sources */,
 				34D6927A29718FE5007B3F40 /* OnboardingViewController.swift in Sources */,
+				340564432973F40500A5CCF1 /* UIColor.swift in Sources */,
 				34D0106029704FE000258959 /* PageViewControllerDataSource.swift in Sources */,
 				34D0105929704DF500258959 /* UIViewController.swift in Sources */,
 				34D692722971608A007B3F40 /* HomeViewTableViewCell.swift in Sources */,
