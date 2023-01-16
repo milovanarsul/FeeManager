@@ -41,4 +41,40 @@ extension UIButton{
             self.tintColor = .black
         }
     }
+    
+    func initialize(title: String, titleColor: UIColor, cornerRadius: CGFloat, font: UIFont, backgroundColor: UIColor, contentInsets: NSDirectionalEdgeInsets? = nil, image: UIImage? = nil, imagePlacement: NSDirectionalRectEdge? = nil){
+        
+        var buttonAttributeContainer: AttributeContainer{
+            var container = AttributeContainer()
+            container.font = font
+            container.foregroundColor = titleColor
+            
+            return container
+        }
+        
+        var configuration = UIButton.Configuration.plain()
+        configuration.title = title
+        configuration.attributedTitle = AttributedString(title, attributes: buttonAttributeContainer)
+        configuration.background.cornerRadius = cornerRadius
+        configuration.background.backgroundColor = backgroundColor
+        
+        if let image = image {
+            configuration.image = image
+            configuration.image?.withTintColor(titleColor)
+            configuration.imagePadding = 10
+            
+            if let imgPlacement = imagePlacement {
+                configuration.imagePlacement = imgPlacement
+            } else {
+                configuration.imagePlacement = .leading
+            }
+        }
+        
+        if let contentInsets = contentInsets {
+            configuration.contentInsets = contentInsets
+        }
+        
+        self.configuration = configuration
+        self.tintColor = titleColor
+    }
 }

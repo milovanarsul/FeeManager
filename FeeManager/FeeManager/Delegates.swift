@@ -10,11 +10,18 @@ import UIKit
 
 class Delegates{
     var navigationBar: NavigationBarDelegate! = nil
+    var onboarding: OnboardingDelegate! = nil
     
     init(){}
 }
 
 protocol NavigationBarDelegate{
+    func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection)
+}
+
+protocol OnboardingDelegate{
+    func getCurrentIndex() -> Int
+    func nextPage()
     func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection)
 }
 

@@ -47,8 +47,38 @@ class OnboardingViewController: UIViewController{
         let view = UIView()
         FeeManager.embed.onboardingPageViewController(parent: self, container: view)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.isHidden = true
         return view
+    }()
+    
+    lazy var actionButton: UIButton = {
+        let button = UIButton()
+        button.initialize(title: "Mai departe", titleColor: .white, cornerRadius: 8, font: UIFont(name: "IBMPlexSans-Bold", size: 16)!, backgroundColor: UIColor("#b64a44"))
+        button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var accountButtonsStack: UIStackView = {
+        lazy var loginButton: UIButton = {
+            let button = UIButton()
+            button.initialize(title: "Loghează-te", titleColor: .white, cornerRadius: 8, font: UIFont(name: "IBMPlexSans-Bold", size: 16)!, backgroundColor: UIColor("#b64a44"), contentInsets: NSDirectionalEdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3),image: UIImage(systemName: "person.fill"), imagePlacement: NSDirectionalRectEdge.leading)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            return button
+        }()
+        
+        lazy var registerButton: UIButton = {
+            let button = UIButton()
+            button.initialize(title: "Înregistrează-te", titleColor: .white, cornerRadius: 8, font: UIFont(name: "IBMPlexSans-Bold", size: 16)!, backgroundColor: UIColor("#b64a44"), contentInsets: NSDirectionalEdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3),image: UIImage(systemName: "person.fill.badge.plus"), imagePlacement: NSDirectionalRectEdge.leading)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            return button
+        }()
+        
+        let stackView = UIStackView()
+        stackView.backgroundColor = .clear
+        stackView.initalize(axis: .vertical, alignment: .fill, distribution: .fillEqually, spacing: 10)
+        stackView.addAranagedSubviews(views: [loginButton, registerButton])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
     }()
     
     override func viewDidLoad() {
@@ -124,19 +154,43 @@ class OnboardingViewController: UIViewController{
         containerWidthConstraint!.isActive = true
         
         containerHeightConstraint!.isActive = false
-        containerHeightConstraint = container.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8)
+        containerHeightConstraint = container.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7)
         containerHeightConstraint!.isActive = true
         
         UIView.animate(withDuration: 0.3, animations: { [self] in
             container.layoutIfNeeded()
             view.layoutIfNeeded()
         }, completion: {[self] finished in
-            container.addSubview(onboardingPageViewController)
+            container.addSubviews([onboardingPageViewController, actionButton])
             
             onboardingPageViewController.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
-            onboardingPageViewController.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
+            onboardingPageViewController.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
             onboardingPageViewController.widthAnchor.constraint(equalTo: container.widthAnchor).isActive = true
-            onboardingPageViewController.heightAnchor.constraint(equalTo: container.heightAnchor).isActive = true
+            onboardingPageViewController.heightAnchor.constraint(equalTo: container.heightAnchor, multiplier: 0.8).isActive = true
+            
+            actionButton.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
+            actionButton.topAnchor.constraint(equalTo: onboardingPageViewController.bottomAnchor, constant: 30).isActive = true
         })
+    }
+    
+    @objc func buttonAction(_ sender: UIButton){
+        print("getcurrentIndex(): \(delegates.onboarding.getCurrentIndex())")
+        
+        switch delegates.onboarding.getCurrentIndex(){
+        case 0..<onboardingCards.count - 2:
+            delegates.onboarding.nextPage()
+        case onboardingCards.count - 2:
+            delegates.onboarding.nextPage()
+            actionButton.isHidden = true
+
+            container.addSubview(accountButtonsStack)
+            accountButtonsStack.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
+            accountButtonsStack.topAnchor.constraint(equalTo: onboardingPageViewController.bottomAnchor, constant: 0).isActive = true
+            accountButtonsStack.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.7).isActive = true
+            accountButtonsStack.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        default:
+            ()
+        }
+        
     }
 }

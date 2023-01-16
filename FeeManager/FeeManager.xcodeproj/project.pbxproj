@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		340564432973F40500A5CCF1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340564422973F40500A5CCF1 /* UIColor.swift */; };
 		340564452973F49400A5CCF1 /* NSLayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340564442973F49400A5CCF1 /* NSLayoutConstraints.swift */; };
+		3405644829743E1700A5CCF1 /* OnboardingCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3405644729743E1700A5CCF1 /* OnboardingCards.swift */; };
+		3405644A29743E5C00A5CCF1 /* ViewModelsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3405644929743E5C00A5CCF1 /* ViewModelsData.swift */; };
+		3405644C29744C9300A5CCF1 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3405644B29744C9300A5CCF1 /* UIStackView.swift */; };
+		34135E14297545D40055F198 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E13297545D40055F198 /* AccountViewController.swift */; };
+		34135E16297546D50055F198 /* AccountFieldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E15297546D50055F198 /* AccountFieldsTableViewCell.swift */; };
+		34135E1A29754A340055F198 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E1929754A340055F198 /* CustomUITextField.swift */; };
+		34135E1C29754DDF0055F198 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E1B29754DDF0055F198 /* CustomTextField.swift */; };
+		34135E1E297554EC0055F198 /* AccountPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E1D297554EC0055F198 /* AccountPage.swift */; };
+		34135E21297555A70055F198 /* AccountHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E20297555A70055F198 /* AccountHeaderTableViewCell.swift */; };
 		346779F02971A731002D2A79 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346779EF2971A731002D2A79 /* UILabel.swift */; };
 		349A4E4829705EDA0052800B /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349A4E4729705EDA0052800B /* UIButton.swift */; };
 		34D0103C2970409D00258959 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0103B2970409D00258959 /* AppDelegate.swift */; };
@@ -24,12 +33,6 @@
 		34D0106029704FE000258959 /* PageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0105F29704FE000258959 /* PageViewControllerDataSource.swift */; };
 		34D010622970516F00258959 /* EmbedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D010612970516F00258959 /* EmbedView.swift */; };
 		34D01064297054C200258959 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34D01063297054C200258959 /* GoogleService-Info.plist */; };
-		34D01067297055CD00258959 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 34D01066297055CD00258959 /* FirebaseAnalytics */; };
-		34D01069297055CD00258959 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 34D01068297055CD00258959 /* FirebaseAuth */; };
-		34D0106B297055CD00258959 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 34D0106A297055CD00258959 /* FirebaseCrashlytics */; };
-		34D0106D297055CD00258959 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 34D0106C297055CD00258959 /* FirebaseDatabase */; };
-		34D0106F297055CD00258959 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 34D0106E297055CD00258959 /* FirebaseFirestore */; };
-		34D01071297055CD00258959 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 34D01070297055CD00258959 /* FirebaseStorage */; };
 		34D692692971568F007B3F40 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D692682971568F007B3F40 /* Delegates.swift */; };
 		34D6926C29715CD4007B3F40 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6926B29715CD4007B3F40 /* Enums.swift */; };
 		34D6926F29715FA5007B3F40 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6926E29715FA5007B3F40 /* HomeViewController.swift */; };
@@ -44,11 +47,22 @@
 		34D6928729719F3A007B3F40 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D6928029719F39007B3F40 /* IBMPlexSans-Regular.ttf */; };
 		34D6928829719F3A007B3F40 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D6928129719F3A007B3F40 /* IBMPlexSans-Light.ttf */; };
 		34D6928929719F3A007B3F40 /* IBMPlexSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D6928229719F3A007B3F40 /* IBMPlexSans-Italic.ttf */; };
+		34F00255297457030097C787 /* FirebaseAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F00254297457030097C787 /* FirebaseAuthentication.swift */; };
+		B7C5489106763E022F021D0A /* Pods_FeeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8B5F3DA43DA0CB7945CB6A /* Pods_FeeManager.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		340564422973F40500A5CCF1 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		340564442973F49400A5CCF1 /* NSLayoutConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraints.swift; sourceTree = "<group>"; };
+		3405644729743E1700A5CCF1 /* OnboardingCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCards.swift; sourceTree = "<group>"; };
+		3405644929743E5C00A5CCF1 /* ViewModelsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsData.swift; sourceTree = "<group>"; };
+		3405644B29744C9300A5CCF1 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		34135E13297545D40055F198 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		34135E15297546D50055F198 /* AccountFieldsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFieldsTableViewCell.swift; sourceTree = "<group>"; };
+		34135E1929754A340055F198 /* CustomUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
+		34135E1B29754DDF0055F198 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		34135E1D297554EC0055F198 /* AccountPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPage.swift; sourceTree = "<group>"; };
+		34135E20297555A70055F198 /* AccountHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		346779EF2971A731002D2A79 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		349A4E4729705EDA0052800B /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		34D010382970409D00258959 /* FeeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +94,10 @@
 		34D6928029719F39007B3F40 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
 		34D6928129719F3A007B3F40 /* IBMPlexSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Light.ttf"; sourceTree = "<group>"; };
 		34D6928229719F3A007B3F40 /* IBMPlexSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Italic.ttf"; sourceTree = "<group>"; };
+		34F00254297457030097C787 /* FirebaseAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentication.swift; sourceTree = "<group>"; };
+		70E488A6695F47D180DEAE2E /* Pods-FeeManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeeManager.release.xcconfig"; path = "Target Support Files/Pods-FeeManager/Pods-FeeManager.release.xcconfig"; sourceTree = "<group>"; };
+		7BB03B4F219C3B952E0B9364 /* Pods-FeeManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeeManager.debug.xcconfig"; path = "Target Support Files/Pods-FeeManager/Pods-FeeManager.debug.xcconfig"; sourceTree = "<group>"; };
+		EB8B5F3DA43DA0CB7945CB6A /* Pods_FeeManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeeManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,23 +105,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34D0106B297055CD00258959 /* FirebaseCrashlytics in Frameworks */,
-				34D01067297055CD00258959 /* FirebaseAnalytics in Frameworks */,
-				34D0106D297055CD00258959 /* FirebaseDatabase in Frameworks */,
-				34D0106F297055CD00258959 /* FirebaseFirestore in Frameworks */,
-				34D01069297055CD00258959 /* FirebaseAuth in Frameworks */,
-				34D01071297055CD00258959 /* FirebaseStorage in Frameworks */,
+				B7C5489106763E022F021D0A /* Pods_FeeManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3405644629743DFC00A5CCF1 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				3405644729743E1700A5CCF1 /* OnboardingCards.swift */,
+				34135E1D297554EC0055F198 /* AccountPage.swift */,
+				34135E1B29754DDF0055F198 /* CustomTextField.swift */,
+				3405644929743E5C00A5CCF1 /* ViewModelsData.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		34135E10297544F70055F198 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				34135E13297545D40055F198 /* AccountViewController.swift */,
+				34135E1F297555730055F198 /* Table View Cells */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		34135E1F297555730055F198 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				34135E15297546D50055F198 /* AccountFieldsTableViewCell.swift */,
+				34135E20297555A70055F198 /* AccountHeaderTableViewCell.swift */,
+			);
+			path = "Table View Cells";
+			sourceTree = "<group>";
+		};
 		34D0102F2970409D00258959 = {
 			isa = PBXGroup;
 			children = (
 				34D0103A2970409D00258959 /* FeeManager */,
 				34D010392970409D00258959 /* Products */,
+				F4638E45FCED61BC52F7F9DB /* Pods */,
+				BA0666A249910879E746D7A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,8 +167,12 @@
 				34D692682971568F007B3F40 /* Delegates.swift */,
 				34D010542970486A00258959 /* Extensions */,
 				34D0105E29704FC700258959 /* Helpers */,
+				34D6926B29715CD4007B3F40 /* Enums.swift */,
 				34D01057297048BB00258959 /* Resources */,
+				34F00253297456DE0097C787 /* Managers */,
+				3405644629743DFC00A5CCF1 /* View Models */,
 				34D6927429716C65007B3F40 /* Main */,
+				34135E10297544F70055F198 /* User */,
 				34D6927329716C24007B3F40 /* Onboarding */,
 				34D6927029716077007B3F40 /* Home Page */,
 				34D0104F297043D600258959 /* Navigation Bar */,
@@ -153,6 +201,7 @@
 				346779EF2971A731002D2A79 /* UILabel.swift */,
 				340564422973F40500A5CCF1 /* UIColor.swift */,
 				340564442973F49400A5CCF1 /* NSLayoutConstraints.swift */,
+				3405644B29744C9300A5CCF1 /* UIStackView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -171,7 +220,7 @@
 			children = (
 				34D0105F29704FE000258959 /* PageViewControllerDataSource.swift */,
 				34D010612970516F00258959 /* EmbedView.swift */,
-				34D6926B29715CD4007B3F40 /* Enums.swift */,
+				34135E1929754A340055F198 /* CustomUITextField.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -218,6 +267,31 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		34F00253297456DE0097C787 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				34F00254297457030097C787 /* FirebaseAuthentication.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		BA0666A249910879E746D7A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB8B5F3DA43DA0CB7945CB6A /* Pods_FeeManager.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4638E45FCED61BC52F7F9DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7BB03B4F219C3B952E0B9364 /* Pods-FeeManager.debug.xcconfig */,
+				70E488A6695F47D180DEAE2E /* Pods-FeeManager.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -225,23 +299,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34D0104C2970409F00258959 /* Build configuration list for PBXNativeTarget "FeeManager" */;
 			buildPhases = (
+				0B99C8A6BBA25322535D0E64 /* [CP] Check Pods Manifest.lock */,
 				34D010342970409D00258959 /* Sources */,
 				34D010352970409D00258959 /* Frameworks */,
 				34D010362970409D00258959 /* Resources */,
+				859A2B8E76F4FCD75892CAD1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = FeeManager;
-			packageProductDependencies = (
-				34D01066297055CD00258959 /* FirebaseAnalytics */,
-				34D01068297055CD00258959 /* FirebaseAuth */,
-				34D0106A297055CD00258959 /* FirebaseCrashlytics */,
-				34D0106C297055CD00258959 /* FirebaseDatabase */,
-				34D0106E297055CD00258959 /* FirebaseFirestore */,
-				34D01070297055CD00258959 /* FirebaseStorage */,
-			);
 			productName = FeeManager;
 			productReference = 34D010382970409D00258959 /* FeeManager.app */;
 			productType = "com.apple.product-type.application";
@@ -270,9 +338,6 @@
 				Base,
 			);
 			mainGroup = 34D0102F2970409D00258959;
-			packageReferences = (
-				34D01065297055CD00258959 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-			);
 			productRefGroup = 34D010392970409D00258959 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -302,6 +367,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0B99C8A6BBA25322535D0E64 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FeeManager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		859A2B8E76F4FCD75892CAD1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FeeManager/Pods-FeeManager-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FeeManager/Pods-FeeManager-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FeeManager/Pods-FeeManager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		34D010342970409D00258959 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -309,10 +416,13 @@
 			files = (
 				34D6927829716EBC007B3F40 /* OnboardingGeneralViewController.swift in Sources */,
 				34D010622970516F00258959 /* EmbedView.swift in Sources */,
+				34135E14297545D40055F198 /* AccountViewController.swift in Sources */,
 				34D010562970487700258959 /* UIView.swift in Sources */,
 				34D0105B29704F7700258959 /* MainPageViewController.swift in Sources */,
+				34135E1C29754DDF0055F198 /* CustomTextField.swift in Sources */,
 				34D010402970409D00258959 /* MainViewController.swift in Sources */,
 				34D692692971568F007B3F40 /* Delegates.swift in Sources */,
+				34F00255297457030097C787 /* FirebaseAuthentication.swift in Sources */,
 				340564452973F49400A5CCF1 /* NSLayoutConstraints.swift in Sources */,
 				34D6926F29715FA5007B3F40 /* HomeViewController.swift in Sources */,
 				346779F02971A731002D2A79 /* UILabel.swift in Sources */,
@@ -320,13 +430,20 @@
 				340564432973F40500A5CCF1 /* UIColor.swift in Sources */,
 				34D0106029704FE000258959 /* PageViewControllerDataSource.swift in Sources */,
 				34D0105929704DF500258959 /* UIViewController.swift in Sources */,
+				3405644A29743E5C00A5CCF1 /* ViewModelsData.swift in Sources */,
 				34D692722971608A007B3F40 /* HomeViewTableViewCell.swift in Sources */,
 				34D6926C29715CD4007B3F40 /* Enums.swift in Sources */,
 				34D0103C2970409D00258959 /* AppDelegate.swift in Sources */,
 				34D0103E2970409D00258959 /* SceneDelegate.swift in Sources */,
 				34D6927629716D5A007B3F40 /* OnboardingPageViewController.swift in Sources */,
+				34135E16297546D50055F198 /* AccountFieldsTableViewCell.swift in Sources */,
+				3405644C29744C9300A5CCF1 /* UIStackView.swift in Sources */,
 				349A4E4829705EDA0052800B /* UIButton.swift in Sources */,
 				34D01053297045BA00258959 /* NavigationBarView.swift in Sources */,
+				34135E21297555A70055F198 /* AccountHeaderTableViewCell.swift in Sources */,
+				34135E1A29754A340055F198 /* CustomUITextField.swift in Sources */,
+				3405644829743E1700A5CCF1 /* OnboardingCards.swift in Sources */,
+				34135E1E297554EC0055F198 /* AccountPage.swift in Sources */,
 				34D0105D29704FA800258959 /* UIPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +578,7 @@
 		};
 		34D0104D2970409F00258959 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BB03B4F219C3B952E0B9364 /* Pods-FeeManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -496,6 +614,7 @@
 		};
 		34D0104E2970409F00258959 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70E488A6695F47D180DEAE2E /* Pods-FeeManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -551,50 +670,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		34D01065297055CD00258959 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		34D01066297055CD00258959 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34D01065297055CD00258959 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		34D01068297055CD00258959 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34D01065297055CD00258959 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		34D0106A297055CD00258959 /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34D01065297055CD00258959 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
-		};
-		34D0106C297055CD00258959 /* FirebaseDatabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34D01065297055CD00258959 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabase;
-		};
-		34D0106E297055CD00258959 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34D01065297055CD00258959 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		34D01070297055CD00258959 /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34D01065297055CD00258959 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 34D010302970409D00258959 /* Project object */;
 }
