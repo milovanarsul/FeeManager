@@ -8,34 +8,40 @@
 import Foundation
 import UIKit
 
-class AccountFieldsTableViewCell: UITableViewCell {
+var fullName: String?
+var email: String?
+var password: String?
+var isOkay: Bool = false
+
+class AccountFieldsTableViewCell: UITableViewCell{
     
     var data: CustomTextField?{
         didSet{
             guard let data = data else {return}
             
             if let smallPlaceHolder = data.smallPlaceHolderText {
-                textField.smallPlaceholderText = smallPlaceHolder
+                customTextField.smallPlaceholderText = smallPlaceHolder
             }
             
             if let placeHolder = data.placeholder {
-                textField.placeholder = placeHolder
+                customTextField.placeholder = placeHolder
             }
             
             if let image = data.image {
-                textField.image = UIImage(named: image)
+                customTextField.image = UIImage(named: image)
             }
         }
     }
     
-    lazy var textField: CustomUITextField = {
+    lazy var customTextField: CustomUITextField = {
         let field = CustomUITextField()
+        field.autocapitalizationType = .none
         field.isHighlightedOnEdit = true
         field.highlightedColor = UIColor("#FF8766")
         
         field.smallPlaceholderColor = UIColor("#B26B58")
-        field.smallPlaceholderFont = UIFont(name: "IBMPlexSans-Regular", size: 12)!
-        field.smallPlaceholderPadding = 12
+        field.smallPlaceholderFont = UIFont(name: "IBMPlexSans-Regular", size: 15)!
+        field.smallPlaceholderPadding = 8
         field.smallPlaceholderLeftOffset = 0
         
         field.separatorIsHidden = false
@@ -58,11 +64,11 @@ class AccountFieldsTableViewCell: UITableViewCell {
         let view = UIView()
         view.backgroundColor = .clear
         
-        view.addSubview(textField)
-        textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        textField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        textField.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        textField.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        view.addSubview(customTextField)
+        customTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        customTextField.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        customTextField.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 15).isActive = true
+        customTextField.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -78,16 +84,83 @@ class AccountFieldsTableViewCell: UITableViewCell {
     
     func setup(data: CustomTextField){
         self.data = data
+        
+        if data.type == .password || data.type == .verifyPassword {
+            customTextField.isSecureTextEntry = true
+        }
+        
+        selectionStyle = .none
         contentView.backgroundColor = .clear
         contentView.addSubview(container)
         
         container.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        container.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         container.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9).isActive = true
-        container.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.9).isActive = true
+        container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
+        container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -3).isActive = true
     }
 }
 
 extension AccountFieldsTableViewCell: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else {return}
+        switch data!.type{
+            case .password:
+            if text.count < 5 {
+                customTextField.errorMessage = "Parola trebuie să fie mai lungă de 5 caractere!"
+                isOkay = false
+            } else if text.count > 100 {
+                customTextField.errorMessage = "Parola nu poate fi mai mare de 100 de caractere!"
+                isOkay = false
+            } else {
+                password = text
+                customTextField.errorMessage = nil
+                isOkay = true
+            }
+            case .verifyPassword:
+                if text == password{
+                    customTextField.errorMessage = nil
+                    isOkay = true
+                } else {
+                    customTextField.errorMessage = "Parola nu corespunde cu parola introdusă!"
+                    isOkay = false
+                }
+            case .name:
+            if text.count == 0{
+                customTextField.errorMessage = "Acest câmp este obligatoriu!"
+                isOkay = false
+            } else {
+                customTextField.errorMessage = nil
+                fullName = text
+                isOkay = true
+            }
+            case .email:
+                ()
+            case .none:
+                ()
+        }
+    }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let emailAdress = textField.text else {return false}
+        switch data!.type {
+            case .email:
+            if emailAdress.isEmail() {
+                email = emailAdress
+                isOkay = true
+            } else {
+                customTextField.errorMessage = "Introdu o adresă validă de e-mail"
+                isOkay = false
+            }
+            default:
+                ()
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == customTextField{
+            textField.resignFirstResponder()
+        }
+        return true
+    }
 }

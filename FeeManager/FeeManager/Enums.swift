@@ -28,4 +28,6 @@ enum FieldType{
 enum UserDetails{
     case email
     case password
+    case verifyPassword
+    case name
 }

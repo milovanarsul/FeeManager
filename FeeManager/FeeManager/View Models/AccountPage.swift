@@ -9,15 +9,23 @@ import Foundation
 import UIKit
 
 class AccountPage{
-    var title: UITableViewCell
-    var textFileds: [UITableViewCell]
-    var helpText: UITableViewCell
-    var action: UITableViewCell
+    let accountHeaderTableViewCell = AccountHeaderTableViewCell()
+    var accountFieldsTableViewCell = AccountFieldsTableViewCell()
+    let accountHelperTextTableViewCell = AccountHelperTextTableViewCell()
+    let accountActionButtonTableViewCell = AccountActionButtonTableViewCell()
     
-    init(title: UITableViewCell, textFileds: [UITableViewCell], helpText: UITableViewCell, action: UITableViewCell) {
-        self.title = title
-        self.textFileds = textFileds
-        self.helpText = helpText
-        self.action = action
+    var accountFieldsTableViewCells = [AccountFieldsTableViewCell]()
+    
+    init(title: String, textFields: [CustomTextField], helpText: String, buttonText: String, accountAction: AccountAction){
+        accountHeaderTableViewCell.setup(text: title)
+        
+        for textFiled in textFields{
+            accountFieldsTableViewCell.setup(data: textFiled)
+            accountFieldsTableViewCells.append(accountFieldsTableViewCell)
+            accountFieldsTableViewCell = AccountFieldsTableViewCell()
+        }
+        
+        accountHelperTextTableViewCell.setup(text: helpText)
+        accountActionButtonTableViewCell.setup(text: buttonText, accountAction: accountAction)
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 class Delegates{
     var navigationBar: NavigationBarDelegate! = nil
     var onboarding: OnboardingDelegate! = nil
+    var onboardingViewController: OnboardingViewControllerDelegate! = nil
     
     init(){}
 }
@@ -23,6 +24,11 @@ protocol OnboardingDelegate{
     func getCurrentIndex() -> Int
     func nextPage()
     func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection)
+}
+
+protocol OnboardingViewControllerDelegate{
+    func endOnboarding()
+    func presentMainViewController()
 }
 
 let delegates: Delegates = Delegates()

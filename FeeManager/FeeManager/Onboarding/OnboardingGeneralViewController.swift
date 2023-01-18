@@ -73,7 +73,7 @@ class OnboardingGeneralViewController: UIViewController{
         
         
         pageImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        pageImage.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -80).isActive = true
+        pageImage.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -120).isActive = true
         pageImage.widthAnchor.constraint(equalToConstant: 250).isActive = true
         pageImage.heightAnchor.constraint(equalTo: pageImage.widthAnchor, multiplier: (1.0 / 1.0), constant: 0).isActive = true
         

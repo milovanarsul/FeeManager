@@ -19,3 +19,13 @@ let loginTextFieldsData: [CustomTextField] = [
     CustomTextField(smallPlaceHolderText: "Introdu adresa ta de e-mail", placeholder: "e-Mail", image: "envelope", type: .email),
     CustomTextField(smallPlaceHolderText: "Introdu parola", placeholder: "Parola", image: "key.horizontal", type: .password)
 ]
+let loginPage = AccountPage(title: "Login", textFields: loginTextFieldsData, helpText: "Mi-am uitat parola", buttonText: "Login", accountAction: .login)
+
+let signupTextFieldsData: [CustomTextField] = [
+    CustomTextField(smallPlaceHolderText: "Introdu numele tău", placeholder: "Nume", image: "envelope", type: .name),
+    CustomTextField(smallPlaceHolderText: "Introdu adresa ta de e-mail", placeholder: "e-Mail", image: "envelope", type: .email),
+    CustomTextField(smallPlaceHolderText: "Introdu o nouă parolă", placeholder: "Parolă", image: "envelope", type: .password),
+    CustomTextField(smallPlaceHolderText: "Reintrodu parola de mai sus", placeholder: "Verificare parolă", image: "envelope", type: .verifyPassword)
+]
+
+let signupPage = AccountPage(title: "Signup", textFields: signupTextFieldsData, helpText: "Toate câmpurile sunt obligatorii!", buttonText: "Signup", accountAction: .signup)

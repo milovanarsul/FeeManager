@@ -42,12 +42,16 @@ extension UIButton{
         }
     }
     
-    func initialize(title: String, titleColor: UIColor, cornerRadius: CGFloat, font: UIFont, backgroundColor: UIColor, contentInsets: NSDirectionalEdgeInsets? = nil, image: UIImage? = nil, imagePlacement: NSDirectionalRectEdge? = nil){
+    func initialize(title: String, titleColor: UIColor, cornerRadius: CGFloat, font: UIFont, backgroundColor: UIColor, contentInsets: NSDirectionalEdgeInsets? = nil, image: UIImage? = nil, imagePlacement: NSDirectionalRectEdge? = nil, underline: Bool = false){
         
         var buttonAttributeContainer: AttributeContainer{
             var container = AttributeContainer()
             container.font = font
             container.foregroundColor = titleColor
+            
+            if underline{
+                container.underlineStyle = .single
+            }
             
             return container
         }
@@ -77,4 +81,16 @@ extension UIButton{
         self.configuration = configuration
         self.tintColor = titleColor
     }
+    
+    func underlineText() {
+        guard let title = title(for: .normal) else { return }
+
+        let titleString = NSMutableAttributedString(string: title)
+        titleString.addAttribute(
+          .underlineStyle,
+          value: NSUnderlineStyle.single.rawValue,
+          range: NSRange(location: 0, length: title.count)
+        )
+        setAttributedTitle(titleString, for: .normal)
+      }
 }

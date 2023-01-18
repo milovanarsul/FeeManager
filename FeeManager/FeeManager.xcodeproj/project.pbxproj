@@ -18,6 +18,9 @@
 		34135E1C29754DDF0055F198 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E1B29754DDF0055F198 /* CustomTextField.swift */; };
 		34135E1E297554EC0055F198 /* AccountPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E1D297554EC0055F198 /* AccountPage.swift */; };
 		34135E21297555A70055F198 /* AccountHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E20297555A70055F198 /* AccountHeaderTableViewCell.swift */; };
+		34135E23297576950055F198 /* AccountHelperTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E22297576950055F198 /* AccountHelperTextTableViewCell.swift */; };
+		34135E252975773F0055F198 /* AccountActionButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E242975773F0055F198 /* AccountActionButtonTableViewCell.swift */; };
+		3459AD742977E7DB00A26C68 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459AD732977E7DB00A26C68 /* String.swift */; };
 		346779F02971A731002D2A79 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346779EF2971A731002D2A79 /* UILabel.swift */; };
 		349A4E4829705EDA0052800B /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349A4E4729705EDA0052800B /* UIButton.swift */; };
 		34D0103C2970409D00258959 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0103B2970409D00258959 /* AppDelegate.swift */; };
@@ -63,6 +66,9 @@
 		34135E1B29754DDF0055F198 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		34135E1D297554EC0055F198 /* AccountPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPage.swift; sourceTree = "<group>"; };
 		34135E20297555A70055F198 /* AccountHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		34135E22297576950055F198 /* AccountHelperTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHelperTextTableViewCell.swift; sourceTree = "<group>"; };
+		34135E242975773F0055F198 /* AccountActionButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountActionButtonTableViewCell.swift; sourceTree = "<group>"; };
+		3459AD732977E7DB00A26C68 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		346779EF2971A731002D2A79 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		349A4E4729705EDA0052800B /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		34D010382970409D00258959 /* FeeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,8 +141,10 @@
 		34135E1F297555730055F198 /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
-				34135E15297546D50055F198 /* AccountFieldsTableViewCell.swift */,
 				34135E20297555A70055F198 /* AccountHeaderTableViewCell.swift */,
+				34135E15297546D50055F198 /* AccountFieldsTableViewCell.swift */,
+				34135E22297576950055F198 /* AccountHelperTextTableViewCell.swift */,
+				34135E242975773F0055F198 /* AccountActionButtonTableViewCell.swift */,
 			);
 			path = "Table View Cells";
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 				340564422973F40500A5CCF1 /* UIColor.swift */,
 				340564442973F49400A5CCF1 /* NSLayoutConstraints.swift */,
 				3405644B29744C9300A5CCF1 /* UIStackView.swift */,
+				3459AD732977E7DB00A26C68 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -423,6 +432,7 @@
 				34D010402970409D00258959 /* MainViewController.swift in Sources */,
 				34D692692971568F007B3F40 /* Delegates.swift in Sources */,
 				34F00255297457030097C787 /* FirebaseAuthentication.swift in Sources */,
+				3459AD742977E7DB00A26C68 /* String.swift in Sources */,
 				340564452973F49400A5CCF1 /* NSLayoutConstraints.swift in Sources */,
 				34D6926F29715FA5007B3F40 /* HomeViewController.swift in Sources */,
 				346779F02971A731002D2A79 /* UILabel.swift in Sources */,
@@ -434,12 +444,14 @@
 				34D692722971608A007B3F40 /* HomeViewTableViewCell.swift in Sources */,
 				34D6926C29715CD4007B3F40 /* Enums.swift in Sources */,
 				34D0103C2970409D00258959 /* AppDelegate.swift in Sources */,
+				34135E23297576950055F198 /* AccountHelperTextTableViewCell.swift in Sources */,
 				34D0103E2970409D00258959 /* SceneDelegate.swift in Sources */,
 				34D6927629716D5A007B3F40 /* OnboardingPageViewController.swift in Sources */,
 				34135E16297546D50055F198 /* AccountFieldsTableViewCell.swift in Sources */,
 				3405644C29744C9300A5CCF1 /* UIStackView.swift in Sources */,
 				349A4E4829705EDA0052800B /* UIButton.swift in Sources */,
 				34D01053297045BA00258959 /* NavigationBarView.swift in Sources */,
+				34135E252975773F0055F198 /* AccountActionButtonTableViewCell.swift in Sources */,
 				34135E21297555A70055F198 /* AccountHeaderTableViewCell.swift in Sources */,
 				34135E1A29754A340055F198 /* CustomUITextField.swift in Sources */,
 				3405644829743E1700A5CCF1 /* OnboardingCards.swift in Sources */,

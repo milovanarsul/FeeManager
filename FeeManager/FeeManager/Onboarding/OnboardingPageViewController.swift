@@ -9,12 +9,13 @@ import Foundation
 import UIKit
 
 class OnboardingPageViewController: UIPageViewController{
-    fileprivate var pages: [UIViewController] = []
+    var pageViewControllerDataSource: UIPageViewControllerDataSource?
+    var pages: [UIViewController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages)
+        pageViewControllerDataSource = PageViewControllerDataSource(pages: pages)
         dataSource = pageViewControllerDataSource
         delegate = self
         
@@ -22,10 +23,16 @@ class OnboardingPageViewController: UIPageViewController{
         initialize(pages: pages, scroll: false)
     }
     
-    fileprivate func createViewControllers(){
+    func createViewControllers(){
         for card in onboardingCards{
             pages.append(OnboardingGeneralViewController(onboardingCard: card))
         }
+        
+        pages.append(AccountViewController(pageType: loginPage, accountAction: .login))
+        pages.append(AccountViewController(pageType: signupPage, accountAction: .signup))
+        
+        pages.append(OnboardingGeneralViewController(onboardingCard: OnboardingCards(image: "onboarding6", mainLabel: "Te-ai logat cu succes!", secondaryLabel: "Vei fi redirecționat către aplicație în cateva momente")))
+        pages.append(OnboardingGeneralViewController(onboardingCard: OnboardingCards(image: "onboarding6", mainLabel: "Te-ai înregistrat cu succes!", secondaryLabel: "Vei fi redirecționat către aplicație în cateva momente")))
     }
 }
 

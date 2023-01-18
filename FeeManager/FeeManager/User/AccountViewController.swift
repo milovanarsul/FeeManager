@@ -25,10 +25,13 @@ class AccountViewController: UIViewController{
         setup()
     }
     
-    var pageType: AccountAction?
+    var accountAction: AccountAction?
+    var pageType: AccountPage?
+    var numberOfItems: Int?
     
-    init(pageType: AccountAction){
+    init(pageType: AccountPage, accountAction: AccountAction){
         self.pageType = pageType
+        self.accountAction = accountAction
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -38,22 +41,53 @@ class AccountViewController: UIViewController{
     }
     
     func setup(){
+        numberOfItems = 1 + pageType!.accountFieldsTableViewCells.count + 2
+        
         view.backgroundColor = .clear
         view.addSubview(tableView)
+        
+        tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        tableView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        tableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
+        tableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.95).isActive = true
     }
 }
 
 extension AccountViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 1 + pageType!.accountFieldsTableViewCells.count + 2
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 0
+        switch indexPath.item{
+        case 0:
+            switch accountAction{
+            case .login:
+                return 150
+            case .signup:
+                return 100
+            case .none:
+                return 0
+            }
+        case numberOfItems! - 2:
+            return 100
+        case numberOfItems! - 1:
+            return 70
+        default:
+            return 70
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        return cell
+        switch indexPath.item{
+        case 0:
+            return pageType!.accountHeaderTableViewCell
+        case numberOfItems! - 2:
+            return pageType!.accountHelperTextTableViewCell
+        case numberOfItems! - 1:
+            return pageType!.accountActionButtonTableViewCell
+        default:
+            return pageType!.accountFieldsTableViewCells[indexPath.item - 1]
+        }
     }
 }

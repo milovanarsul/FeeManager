@@ -24,7 +24,7 @@ class EmbedView{
     }
     
     func onboardingPageViewController(parent: OnboardingViewController, container: UIView){
-        let child  = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        let child = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
         delegates.onboarding = child
     }

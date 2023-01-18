@@ -12,5 +12,6 @@ target 'FeeManager' do
 	pod 'FirebaseStorage'
 	pod 'FirebaseDatabase'
 	pod 'FirebaseUI'
+	pod 'RNCryptor', '~> 5.0'
 
 end
