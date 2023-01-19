@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-extension UIView{
-    func addSubviews(_ views: [UIView]){
-        for view in views{
-            addSubview(view)
-        }
+extension UIViewController{
+    func presentView(view: UIViewController, animated: Bool, presentationStyle: UIModalPresentationStyle, dismissPrevious: Bool){
+        view.modalPresentationStyle = presentationStyle
+        present(view, animated: animated, completion: nil)
+        show(view, sender: self)
     }
 }

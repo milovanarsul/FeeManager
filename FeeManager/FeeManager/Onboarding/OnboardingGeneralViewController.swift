@@ -48,7 +48,7 @@ class OnboardingGeneralViewController: UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        UIView.setAnimationsEnabled(false)
+        //UIView.setAnimationsEnabled(false)
         
         setup()
     }

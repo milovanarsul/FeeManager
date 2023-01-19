@@ -9,10 +9,27 @@ import Foundation
 import UIKit
 
 class AccountHelperTextTableViewCell: UITableViewCell{
+    var underline: Bool = false
+    
     var text: String?{
         didSet{
             if let text = text{
-                button.initialize(title: text, titleColor: .black, cornerRadius: 0, font: UIFont(name: "IBMPlexSans-Regular", size: 16)!, backgroundColor: .clear, underline: true)
+                button.initialize(title: text, titleColor: .black, cornerRadius: 0, font: UIFont(name: "IBMPlexSans-Regular", size: 16)!, backgroundColor: .clear, underline: underline)
+            }
+        }
+    }
+    
+    var action: AccountAction?{
+        didSet{
+            if action == action{
+                switch action{
+                case .signup:
+                    underline = false
+                case .login:
+                    underline = true
+                case .none:
+                    ()
+                }
             }
         }
     }
@@ -32,16 +49,18 @@ class AccountHelperTextTableViewCell: UITableViewCell{
         super.init(coder: aDecoder)
     }
     
-    func setup(text: String){
+    func setup(text: String, action: AccountAction){
         selectionStyle = .none
+        
         self.text = text
+        self.action = action
         
         contentView.backgroundColor = .clear
         contentView.addSubview(button)
         
         button.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         button.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        button.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9).isActive = true
+        button.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.97).isActive = true
     }
     
     @objc func buttonAction(_ sender: UIButton){

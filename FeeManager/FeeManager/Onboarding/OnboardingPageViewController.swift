@@ -31,8 +31,8 @@ class OnboardingPageViewController: UIPageViewController{
         pages.append(AccountViewController(pageType: loginPage, accountAction: .login))
         pages.append(AccountViewController(pageType: signupPage, accountAction: .signup))
         
-        pages.append(OnboardingGeneralViewController(onboardingCard: OnboardingCards(image: "onboarding6", mainLabel: "Te-ai logat cu succes!", secondaryLabel: "Vei fi redirecționat către aplicație în cateva momente")))
-        pages.append(OnboardingGeneralViewController(onboardingCard: OnboardingCards(image: "onboarding6", mainLabel: "Te-ai înregistrat cu succes!", secondaryLabel: "Vei fi redirecționat către aplicație în cateva momente")))
+        pages.append(OnboardingGeneralViewController(onboardingCard: OnboardingCards(image: "onboarding6", mainLabel: "Te-ai logat cu succes!", secondaryLabel: "")))
+        pages.append(OnboardingGeneralViewController(onboardingCard: OnboardingCards(image: "onboarding6", mainLabel: "Te-ai înregistrat cu succes!", secondaryLabel: "")))
     }
 }
 
@@ -53,5 +53,9 @@ extension OnboardingPageViewController: OnboardingDelegate{
     
     func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection) {
         goToIndex(pageIndex: pageIndex, direction: direction, pages: pages)
+    }
+    
+    func getPageCount() -> Int{
+        return pages.count
     }
 }

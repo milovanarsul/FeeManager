@@ -19,10 +19,6 @@ class AccountFieldsTableViewCell: UITableViewCell{
         didSet{
             guard let data = data else {return}
             
-            if let smallPlaceHolder = data.smallPlaceHolderText {
-                customTextField.smallPlaceholderText = smallPlaceHolder
-            }
-            
             if let placeHolder = data.placeholder {
                 customTextField.placeholder = placeHolder
             }
@@ -36,6 +32,7 @@ class AccountFieldsTableViewCell: UITableViewCell{
     lazy var customTextField: CustomUITextField = {
         let field = CustomUITextField()
         field.autocapitalizationType = .none
+        field.autocorrectionType = .no
         field.isHighlightedOnEdit = true
         field.highlightedColor = UIColor("#FF8766")
         
@@ -101,6 +98,10 @@ class AccountFieldsTableViewCell: UITableViewCell{
 }
 
 extension AccountFieldsTableViewCell: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        customTextField.smallPlaceholderText = data!.smallPlaceHolderText!
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text else {return}
         switch data!.type{
@@ -112,6 +113,7 @@ extension AccountFieldsTableViewCell: UITextFieldDelegate {
                 customTextField.errorMessage = "Parola nu poate fi mai mare de 100 de caractere!"
                 isOkay = false
             } else {
+                customTextField.smallPlaceholderText = ""
                 password = text
                 customTextField.errorMessage = nil
                 isOkay = true
@@ -134,33 +136,21 @@ extension AccountFieldsTableViewCell: UITextFieldDelegate {
                 isOkay = true
             }
             case .email:
-                ()
+                customTextField.smallPlaceholderText = ""
+                if text.isEmail(){
+                   email = text
+                   isOkay = true
+                } else{
+                    customTextField.errorMessage = "Introdu o adresă validă de e-mail"
+                    isOkay = false
+                }
             case .none:
                 ()
         }
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let emailAdress = textField.text else {return false}
-        switch data!.type {
-            case .email:
-            if emailAdress.isEmail() {
-                email = emailAdress
-                isOkay = true
-            } else {
-                customTextField.errorMessage = "Introdu o adresă validă de e-mail"
-                isOkay = false
-            }
-            default:
-                ()
-        }
-        return true
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == customTextField{
             textField.resignFirstResponder()
-        }
-        return true
+            return true
     }
 }

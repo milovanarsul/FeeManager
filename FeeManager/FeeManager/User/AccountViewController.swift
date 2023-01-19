@@ -70,9 +70,9 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource{
                 return 0
             }
         case numberOfItems! - 2:
-            return 100
-        case numberOfItems! - 1:
             return 70
+        case numberOfItems! - 1:
+            return 50
         default:
             return 70
         }

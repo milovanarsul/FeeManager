@@ -16,21 +16,23 @@ class FirebaseAuthentication{
     static func signupUser(fullName: String, email: String, password: String){
         Auth.auth().createUser(withEmail: email, password: password){ (result, error) in
             if error != nil{
-                print("Error creating user!")
+                delegates.onboardingViewController.displayErrorView(error: error!.localizedDescription)
+                delegates.onboardingViewController.animateErrorView(type: .show)
             } else {
                 database.collection("users").addDocument(data: ["fullname" : fullName,  "uid" : result!.user.uid]) {(error) in
                     if error != nil {
-                        print("Error saving user data!")
+                        delegates.onboardingViewController.displayErrorView(error: error!.localizedDescription)
+                        delegates.onboardingViewController.animateErrorView(type: .show)
                     }
+                    
+                    FeeManager.fullName = nil
+                    FeeManager.email = nil
+                    FeeManager.password = nil
+                    
+                    delegates.onboardingViewController.endOnboarding()
+                    print(delegates.onboarding.getCurrentIndex())
+                    delegates.onboarding.goToPage(pageIndex: delegates.onboarding.getCurrentIndex() + 2, direction: .forward)
                 }
-                
-                FeeManager.fullName = nil
-                FeeManager.email = nil
-                FeeManager.password = nil
-                
-                delegates.onboardingViewController.endOnboarding()
-                delegates.onboarding.goToPage(pageIndex: delegates.onboarding.getCurrentIndex() + 3, direction: .forward)
-                delegates.onboardingViewController.presentMainViewController()
             }
         }
     }
@@ -38,15 +40,15 @@ class FirebaseAuthentication{
     static func loginUser(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password) {(result, error) in
             if error != nil {
-                print("Couldn't sign in!")
+                delegates.onboardingViewController.displayErrorView(error: error!.localizedDescription)
+                delegates.onboardingViewController.animateErrorView(type: .show)
             } else {
                 FeeManager.email = nil
                 FeeManager.password = nil
+                
+                delegates.onboardingViewController.endOnboarding()
+                delegates.onboarding.goToPage(pageIndex: delegates.onboarding.getCurrentIndex() + 2, direction: .forward)
             }
-            
-            delegates.onboardingViewController.endOnboarding()
-            delegates.onboarding.goToPage(pageIndex: delegates.onboarding.getCurrentIndex() + 2, direction: .forward)
-            delegates.onboardingViewController.presentMainViewController()
         }
     }
 }

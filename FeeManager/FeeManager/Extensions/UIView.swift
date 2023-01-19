@@ -25,4 +25,10 @@ extension UIView{
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
     }
+    
+    func addSubviews(_ views: [UIView]){
+        for view in views{
+            addSubview(view)
+        }
+    }
 }

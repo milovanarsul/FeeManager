@@ -25,7 +25,7 @@ class AccountPage{
             accountFieldsTableViewCell = AccountFieldsTableViewCell()
         }
         
-        accountHelperTextTableViewCell.setup(text: helpText)
+        accountHelperTextTableViewCell.setup(text: helpText, action: accountAction)
         accountActionButtonTableViewCell.setup(text: buttonText, accountAction: accountAction)
     }
 }

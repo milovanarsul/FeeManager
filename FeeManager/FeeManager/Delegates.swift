@@ -24,9 +24,12 @@ protocol OnboardingDelegate{
     func getCurrentIndex() -> Int
     func nextPage()
     func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection)
+    func getPageCount() -> Int
 }
 
 protocol OnboardingViewControllerDelegate{
+    func displayErrorView(error: String)
+    func animateErrorView(type: AnimationType)
     func endOnboarding()
     func presentMainViewController()
 }
