@@ -11,44 +11,65 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class FirebaseAuthentication{
+    static let authentication = Auth.auth()
     static let database = Firestore.firestore()
+    static var userID: String?
     
     static func signupUser(fullName: String, email: String, password: String){
-        Auth.auth().createUser(withEmail: email, password: password){ (result, error) in
+        authentication.createUser(withEmail: email, password: password){ (result, error) in
             if error != nil{
                 delegates.onboardingViewController.displayErrorView(error: error!.localizedDescription)
                 delegates.onboardingViewController.animateErrorView(type: .show)
             } else {
-                database.collection("users").addDocument(data: ["fullname" : fullName,  "uid" : result!.user.uid]) {(error) in
-                    if error != nil {
-                        delegates.onboardingViewController.displayErrorView(error: error!.localizedDescription)
-                        delegates.onboardingViewController.animateErrorView(type: .show)
-                    }
+                do {
+                    let details = User(fullName: fullName, uid: result!.user.uid)
+                
+                    try database.collection("user").document(result!.user.uid).setData(from: details)
+                    userID = result!.user.uid
                     
                     FeeManager.fullName = nil
                     FeeManager.email = nil
                     FeeManager.password = nil
                     
-                    delegates.onboardingViewController.endOnboarding()
-                    print(delegates.onboarding.getCurrentIndex())
-                    delegates.onboarding.goToPage(pageIndex: delegates.onboarding.getCurrentIndex() + 2, direction: .forward)
+                    FirebaseFireStore.getUserData(completion: {finished in
+                        if finished{
+                            delegates.onboardingViewController.endOnboarding()
+                            delegates.onboarding.goToPage(pageIndex: delegates.onboarding.getCurrentIndex() + 2, direction: .forward)
+                            defaults.set(true, forKey: "notFirstLaunch")
+                        }
+                    })
+                } catch let error {
+                    print("Error writing details to Firestore: \(error)")
+                    delegates.onboardingViewController.displayErrorView(error: error.localizedDescription)
+                    delegates.onboardingViewController.animateErrorView(type: .show)
                 }
             }
         }
     }
     
     static func loginUser(email: String, password: String){
-        Auth.auth().signIn(withEmail: email, password: password) {(result, error) in
+        authentication.signIn(withEmail: email, password: password) {(result, error) in
             if error != nil {
                 delegates.onboardingViewController.displayErrorView(error: error!.localizedDescription)
                 delegates.onboardingViewController.animateErrorView(type: .show)
             } else {
+                userID = result!.user.uid
+                
                 FeeManager.email = nil
                 FeeManager.password = nil
                 
-                delegates.onboardingViewController.endOnboarding()
-                delegates.onboarding.goToPage(pageIndex: delegates.onboarding.getCurrentIndex() + 2, direction: .forward)
+                FirebaseFireStore.getFees(completion: {finished in
+                    if finished{
+                        delegates.onboardingViewController.endOnboarding()
+                        delegates.onboarding.goToPage(pageIndex: delegates.onboarding.getCurrentIndex() + 2, direction: .forward)
+                        defaults.set(true, forKey: "notFirstLaunch")
+                    }
+                })
             }
         }
+    }
+    
+    static func getCurrentUserID(){
+        userID = authentication.currentUser?.uid
     }
 }

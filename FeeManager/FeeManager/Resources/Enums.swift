@@ -36,3 +36,15 @@ enum AnimationType{
     case show
     case hide
 }
+
+enum FeeSelectorType{
+    case date
+    case select
+    case image
+}
+
+enum FeeAction{
+    case view
+    case edit
+    case create
+}

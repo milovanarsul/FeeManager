@@ -31,4 +31,25 @@ extension UIView{
             addSubview(view)
         }
     }
+    
+    @IBInspectable var dropShadow: Bool {
+        set{
+            if newValue {
+                layer.shadowColor = UIColor.black.cgColor
+                layer.shadowOpacity = 0.25
+                layer.shadowRadius = 48
+                layer.shadowOffset = CGSize.zero
+                layer.cornerRadius = 24
+            } else {
+                layer.shadowColor = UIColor.clear.cgColor
+                layer.shadowOpacity = 0
+                layer.shadowRadius = 0
+                layer.shadowOffset = CGSize.zero
+                layer.cornerRadius = 24
+            }
+        }
+        get {
+            return layer.shadowOpacity > 0
+        }
+    }
 }

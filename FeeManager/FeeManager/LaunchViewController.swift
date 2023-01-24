@@ -45,10 +45,12 @@ class LaunchViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+        
     }
     
     var containerWidthConstraint: NSLayoutConstraint?
     var containerHeightConstraint: NSLayoutConstraint?
+    var containerYConstraint: NSLayoutConstraint?
     var appNameTopConstraint: NSLayoutConstraint?
     var descriptionLabelBottomConstraint: NSLayoutConstraint?
     
@@ -79,7 +81,8 @@ class LaunchViewController: UIViewController {
         containerWidthConstraint!.priority = UILayoutPriority(999)
         containerHeightConstraint = container.heightAnchor.constraint(equalToConstant: 138)
         containerHeightConstraint!.priority = UILayoutPriority(999)
-        container.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        containerYConstraint = container.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        containerYConstraint!.isActive = true
         container.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         containerWidthConstraint!.isActive = true
         containerHeightConstraint!.isActive = true
@@ -98,22 +101,27 @@ class LaunchViewController: UIViewController {
             roundedIcon.layoutIfNeeded()
             appName.layoutIfNeeded()
             descriptionLabel.layoutIfNeeded()
-            //view.layoutIfNeeded()
         }, completion: {[self] finished in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){ [self] in
                 appName.removeFromSuperview()
                 descriptionLabel.removeFromSuperview()
-                roundedIcon.removeFromSuperview()
                 containerSetup()
                 
                 let notFirstLaunch = defaults.bool(forKey: "notFirstLaunch")
                 
                 if notFirstLaunch == false {
                     print("Onboarding presented")
+                    roundedIcon.removeFromSuperview()
                     onboarding()
                 } else {
                     print("Main presented")
-                    main()
+                    FirebaseAuthentication.getCurrentUserID()
+                    FirebaseFireStore.getFees(completion: {finished in
+                        if finished{
+                            self.roundedIcon.removeFromSuperview()
+                            self.main()
+                        }
+                    })
                 }
             }
         })
@@ -134,18 +142,20 @@ class LaunchViewController: UIViewController {
             presentView(view: OnboardingViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: false)
             self.view.layoutIfNeeded()
             self.removeFromParent()
-            defaults.set(true, forKey: "notFirstLaunch")
         })
     }
     
     func main(){
         containerWidthConstraint!.isActive = false
-        containerWidthConstraint = container.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.1)
+        containerWidthConstraint = container.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1)
         containerWidthConstraint!.isActive = true
         
         containerHeightConstraint!.isActive = false
-        containerHeightConstraint = container.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1.1)
+        containerHeightConstraint = container.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.89)
         containerHeightConstraint!.isActive = true
+        
+        containerYConstraint!.isActive = false
+        container.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         UIView.animate(withDuration: 0.4, animations: { [self] in
             container.layoutIfNeeded()

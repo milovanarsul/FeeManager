@@ -29,7 +29,6 @@ class MainPageViewController: UIPageViewController{
         pages.append(homeViewController)
         
         let analyticsViewController = UIViewController()
-        analyticsViewController.view.backgroundColor = .yellow
         pages.append(analyticsViewController)
     }
 }

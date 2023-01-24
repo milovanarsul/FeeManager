@@ -12,11 +12,25 @@ class CustomTextField{
     var placeholder: String?
     var image: String?
     var type: UserDetails?
+    var text: String?
     
-    init(smallPlaceHolderText: String, placeholder: String, image: String, type: UserDetails) {
-        self.smallPlaceHolderText = smallPlaceHolderText
+    init(smallPlaceHolderText: String? = nil, placeholder: String, image: String? = nil, type: UserDetails? = nil, text: String? = nil){
+        if let smallPlaceHolderText = smallPlaceHolderText{
+            self.smallPlaceHolderText = smallPlaceHolderText
+        }
+        
         self.placeholder = placeholder
-        self.image = image
-        self.type = type
+        
+        if let image = image{
+            self.image = image
+        }
+        
+        if let type = type {
+            self.type = type
+        }
+        
+        if let text = text {
+            self.text = text
+        }
     }
 }

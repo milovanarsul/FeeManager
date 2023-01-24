@@ -22,7 +22,22 @@
 		34135E252975773F0055F198 /* AccountActionButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E242975773F0055F198 /* AccountActionButtonTableViewCell.swift */; };
 		3459AD742977E7DB00A26C68 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459AD732977E7DB00A26C68 /* String.swift */; };
 		346779F02971A731002D2A79 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346779EF2971A731002D2A79 /* UILabel.swift */; };
+		347D6680297FD546009054BA /* FeeCreatorAddDataPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347D667F297FD546009054BA /* FeeCreatorAddDataPrompt.swift */; };
 		349A4E4829705EDA0052800B /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349A4E4729705EDA0052800B /* UIButton.swift */; };
+		34BEB613297A9205000AC02E /* Fee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BEB612297A9205000AC02E /* Fee.swift */; };
+		34BEB616297BDFF9000AC02E /* FeeCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BEB615297BDFF9000AC02E /* FeeCreatorViewController.swift */; };
+		34BEB61B297BE23A000AC02E /* FeeTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BEB61A297BE23A000AC02E /* FeeTitleTableViewCell.swift */; };
+		34BEB61D297BE455000AC02E /* FeeSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BEB61C297BE455000AC02E /* FeeSelectorTableViewCell.swift */; };
+		34BEB61F297BE864000AC02E /* FeeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BEB61E297BE864000AC02E /* FeeSelector.swift */; };
+		34BEB621297BEB1B000AC02E /* FeeTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BEB620297BEB1B000AC02E /* FeeTextFieldTableViewCell.swift */; };
+		34BEB623297BEC90000AC02E /* FeeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BEB622297BEC8F000AC02E /* FeeCreator.swift */; };
+		34BEB625297C45A8000AC02E /* FeeCreatorUIPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BEB624297C45A8000AC02E /* FeeCreatorUIPicker.swift */; };
+		34BEB627297C511C000AC02E /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BEB626297C511C000AC02E /* ModalView.swift */; };
+		34C6FF7D297E81C700E70182 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C6FF7C297E81C700E70182 /* UITableView.swift */; };
+		34C6FF7F297ECBCB00E70182 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C6FF7E297ECBCB00E70182 /* User.swift */; };
+		34C6FF81297ECF0400E70182 /* FirebaseFireStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C6FF80297ECF0400E70182 /* FirebaseFireStore.swift */; };
+		34C6FF83297EE85F00E70182 /* FeeTuples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C6FF82297EE85F00E70182 /* FeeTuples.swift */; };
+		34C6FF86297EEA1500E70182 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 34C6FF85297EEA1500E70182 /* FirebaseFirestoreSwift */; };
 		34D0103C2970409D00258959 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0103B2970409D00258959 /* AppDelegate.swift */; };
 		34D0103E2970409D00258959 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0103D2970409D00258959 /* SceneDelegate.swift */; };
 		34D010402970409D00258959 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0103F2970409D00258959 /* MainViewController.swift */; };
@@ -39,7 +54,6 @@
 		34D692692971568F007B3F40 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D692682971568F007B3F40 /* Delegates.swift */; };
 		34D6926C29715CD4007B3F40 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6926B29715CD4007B3F40 /* Enums.swift */; };
 		34D6926F29715FA5007B3F40 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6926E29715FA5007B3F40 /* HomeViewController.swift */; };
-		34D692722971608A007B3F40 /* HomeViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D692712971608A007B3F40 /* HomeViewTableViewCell.swift */; };
 		34D6927629716D5A007B3F40 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6927529716D5A007B3F40 /* OnboardingPageViewController.swift */; };
 		34D6927829716EBC007B3F40 /* OnboardingGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6927729716EBC007B3F40 /* OnboardingGeneralViewController.swift */; };
 		34D6927A29718FE5007B3F40 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6927929718FE5007B3F40 /* OnboardingViewController.swift */; };
@@ -50,6 +64,9 @@
 		34D6928729719F3A007B3F40 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D6928029719F39007B3F40 /* IBMPlexSans-Regular.ttf */; };
 		34D6928829719F3A007B3F40 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D6928129719F3A007B3F40 /* IBMPlexSans-Light.ttf */; };
 		34D6928929719F3A007B3F40 /* IBMPlexSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D6928229719F3A007B3F40 /* IBMPlexSans-Italic.ttf */; };
+		34D9329D297D3CD10046D70F /* Various.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D9329C297D3CD10046D70F /* Various.swift */; };
+		34D9329F297D64730046D70F /* FeeActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D9329E297D64730046D70F /* FeeActionTableViewCell.swift */; };
+		34D932A1297D9B5D0046D70F /* CardTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D932A0297D9B5D0046D70F /* CardTransitionManager.swift */; };
 		34F00255297457030097C787 /* FirebaseAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F00254297457030097C787 /* FirebaseAuthentication.swift */; };
 		34FFF7E529793967002D63FB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 34FFF7E429793967002D63FB /* FirebaseAnalytics */; };
 		34FFF7E729793967002D63FB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 34FFF7E629793967002D63FB /* FirebaseAuth */; };
@@ -79,7 +96,21 @@
 		34135E242975773F0055F198 /* AccountActionButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountActionButtonTableViewCell.swift; sourceTree = "<group>"; };
 		3459AD732977E7DB00A26C68 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		346779EF2971A731002D2A79 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		347D667F297FD546009054BA /* FeeCreatorAddDataPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeCreatorAddDataPrompt.swift; sourceTree = "<group>"; };
 		349A4E4729705EDA0052800B /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		34BEB612297A9205000AC02E /* Fee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fee.swift; sourceTree = "<group>"; };
+		34BEB615297BDFF9000AC02E /* FeeCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeCreatorViewController.swift; sourceTree = "<group>"; };
+		34BEB61A297BE23A000AC02E /* FeeTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeTitleTableViewCell.swift; sourceTree = "<group>"; };
+		34BEB61C297BE455000AC02E /* FeeSelectorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeSelectorTableViewCell.swift; sourceTree = "<group>"; };
+		34BEB61E297BE864000AC02E /* FeeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeSelector.swift; sourceTree = "<group>"; };
+		34BEB620297BEB1B000AC02E /* FeeTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeTextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		34BEB622297BEC8F000AC02E /* FeeCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeCreator.swift; sourceTree = "<group>"; };
+		34BEB624297C45A8000AC02E /* FeeCreatorUIPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeCreatorUIPicker.swift; sourceTree = "<group>"; };
+		34BEB626297C511C000AC02E /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		34C6FF7C297E81C700E70182 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		34C6FF7E297ECBCB00E70182 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		34C6FF80297ECF0400E70182 /* FirebaseFireStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFireStore.swift; sourceTree = "<group>"; };
+		34C6FF82297EE85F00E70182 /* FeeTuples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeTuples.swift; sourceTree = "<group>"; };
 		34D010382970409D00258959 /* FeeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D0103B2970409D00258959 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34D0103D2970409D00258959 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +129,6 @@
 		34D692682971568F007B3F40 /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		34D6926B29715CD4007B3F40 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		34D6926E29715FA5007B3F40 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		34D692712971608A007B3F40 /* HomeViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTableViewCell.swift; sourceTree = "<group>"; };
 		34D6927529716D5A007B3F40 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		34D6927729716EBC007B3F40 /* OnboardingGeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingGeneralViewController.swift; sourceTree = "<group>"; };
 		34D6927929718FE5007B3F40 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +139,9 @@
 		34D6928029719F39007B3F40 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
 		34D6928129719F3A007B3F40 /* IBMPlexSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Light.ttf"; sourceTree = "<group>"; };
 		34D6928229719F3A007B3F40 /* IBMPlexSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Italic.ttf"; sourceTree = "<group>"; };
+		34D9329C297D3CD10046D70F /* Various.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Various.swift; sourceTree = "<group>"; };
+		34D9329E297D64730046D70F /* FeeActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeActionTableViewCell.swift; sourceTree = "<group>"; };
+		34D932A0297D9B5D0046D70F /* CardTransitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransitionManager.swift; sourceTree = "<group>"; };
 		34F00254297457030097C787 /* FirebaseAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentication.swift; sourceTree = "<group>"; };
 		34FFF7F2297943AB002D63FB /* AuthentificationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationError.swift; sourceTree = "<group>"; };
 		34FFF7F42979582F002D63FB /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +160,7 @@
 				34FFF7F129793967002D63FB /* FirebaseStorage in Frameworks */,
 				34FFF7ED29793967002D63FB /* FirebaseFirestore in Frameworks */,
 				34FFF7E729793967002D63FB /* FirebaseAuth in Frameworks */,
+				34C6FF86297EEA1500E70182 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,18 +173,20 @@
 				3405644729743E1700A5CCF1 /* OnboardingCards.swift */,
 				34135E1D297554EC0055F198 /* AccountPage.swift */,
 				34135E1B29754DDF0055F198 /* CustomTextField.swift */,
+				34BEB60D297A89F6000AC02E /* Fees */,
+				34C6FF7E297ECBCB00E70182 /* User.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
 		};
-		34135E10297544F70055F198 /* User */ = {
+		34135E10297544F70055F198 /* Account */ = {
 			isa = PBXGroup;
 			children = (
 				34135E13297545D40055F198 /* AccountViewController.swift */,
 				34FFF7F2297943AB002D63FB /* AuthentificationError.swift */,
 				34135E1F297555730055F198 /* Table View Cells */,
 			);
-			path = User;
+			path = Account;
 			sourceTree = "<group>";
 		};
 		34135E1F297555730055F198 /* Table View Cells */ = {
@@ -164,11 +200,52 @@
 			path = "Table View Cells";
 			sourceTree = "<group>";
 		};
+		34BEB60D297A89F6000AC02E /* Fees */ = {
+			isa = PBXGroup;
+			children = (
+				34BEB612297A9205000AC02E /* Fee.swift */,
+				34BEB622297BEC8F000AC02E /* FeeCreator.swift */,
+				34BEB61E297BE864000AC02E /* FeeSelector.swift */,
+				34C6FF82297EE85F00E70182 /* FeeTuples.swift */,
+			);
+			path = Fees;
+			sourceTree = "<group>";
+		};
+		34BEB614297BDFD8000AC02E /* FeeCreator */ = {
+			isa = PBXGroup;
+			children = (
+				34BEB615297BDFF9000AC02E /* FeeCreatorViewController.swift */,
+				34BEB624297C45A8000AC02E /* FeeCreatorUIPicker.swift */,
+				347D667F297FD546009054BA /* FeeCreatorAddDataPrompt.swift */,
+				34BEB617297BE02E000AC02E /* TableViewCells */,
+			);
+			path = FeeCreator;
+			sourceTree = "<group>";
+		};
+		34BEB617297BE02E000AC02E /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				34BEB61A297BE23A000AC02E /* FeeTitleTableViewCell.swift */,
+				34BEB61C297BE455000AC02E /* FeeSelectorTableViewCell.swift */,
+				34BEB620297BEB1B000AC02E /* FeeTextFieldTableViewCell.swift */,
+				34D9329E297D64730046D70F /* FeeActionTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		34C6FF84297EEA1500E70182 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		34D0102F2970409D00258959 = {
 			isa = PBXGroup;
 			children = (
 				34D0103A2970409D00258959 /* FeeManager */,
 				34D010392970409D00258959 /* Products */,
+				34C6FF84297EEA1500E70182 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,23 +270,17 @@
 				3405644629743DFC00A5CCF1 /* View Models */,
 				34FFF7F42979582F002D63FB /* LaunchViewController.swift */,
 				34D6927429716C65007B3F40 /* Main */,
-				34135E10297544F70055F198 /* User */,
+				34135E10297544F70055F198 /* Account */,
 				34D6927329716C24007B3F40 /* Onboarding */,
 				34D6927029716077007B3F40 /* Home Page */,
-				34D0104F297043D600258959 /* Navigation Bar */,
+				34BEB614297BDFD8000AC02E /* FeeCreator */,
+				34D01052297045BA00258959 /* NavigationBarView.swift */,
+				34BEB626297C511C000AC02E /* ModalView.swift */,
 				34D010462970409F00258959 /* LaunchScreen.storyboard */,
 				34D010492970409F00258959 /* Info.plist */,
 				34D01063297054C200258959 /* GoogleService-Info.plist */,
 			);
 			path = FeeManager;
-			sourceTree = "<group>";
-		};
-		34D0104F297043D600258959 /* Navigation Bar */ = {
-			isa = PBXGroup;
-			children = (
-				34D01052297045BA00258959 /* NavigationBarView.swift */,
-			);
-			path = "Navigation Bar";
 			sourceTree = "<group>";
 		};
 		34D010542970486A00258959 /* Extensions */ = {
@@ -224,6 +295,7 @@
 				340564442973F49400A5CCF1 /* NSLayoutConstraints.swift */,
 				3405644B29744C9300A5CCF1 /* UIStackView.swift */,
 				3459AD732977E7DB00A26C68 /* String.swift */,
+				34C6FF7C297E81C700E70182 /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -231,8 +303,8 @@
 		34D01057297048BB00258959 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				34D010442970409F00258959 /* Assets.xcassets */,
 				34D6927B29719F03007B3F40 /* Fonts */,
+				34D010442970409F00258959 /* Assets.xcassets */,
 				34FFF7F6297960B6002D63FB /* Defaults.swift */,
 				34D6926B29715CD4007B3F40 /* Enums.swift */,
 				3405644929743E5C00A5CCF1 /* ViewModelsData.swift */,
@@ -244,8 +316,9 @@
 			isa = PBXGroup;
 			children = (
 				34D0105F29704FE000258959 /* PageViewControllerDataSource.swift */,
-				34D010612970516F00258959 /* EmbedView.swift */,
 				34135E1929754A340055F198 /* CustomUITextField.swift */,
+				34D010612970516F00258959 /* EmbedView.swift */,
+				34D9329C297D3CD10046D70F /* Various.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -254,7 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				34D6926E29715FA5007B3F40 /* HomeViewController.swift */,
-				34D692712971608A007B3F40 /* HomeViewTableViewCell.swift */,
+				34D932A0297D9B5D0046D70F /* CardTransitionManager.swift */,
 			);
 			path = "Home Page";
 			sourceTree = "<group>";
@@ -296,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				34F00254297457030097C787 /* FirebaseAuthentication.swift */,
+				34C6FF80297ECF0400E70182 /* FirebaseFireStore.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -324,6 +398,7 @@
 				34FFF7EC29793967002D63FB /* FirebaseFirestore */,
 				34FFF7EE29793967002D63FB /* FirebasePerformance */,
 				34FFF7F029793967002D63FB /* FirebaseStorage */,
+				34C6FF85297EEA1500E70182 /* FirebaseFirestoreSwift */,
 			);
 			productName = FeeManager;
 			productReference = 34D010382970409D00258959 /* FeeManager.app */;
@@ -355,6 +430,7 @@
 			mainGroup = 34D0102F2970409D00258959;
 			packageReferences = (
 				34FFF7E329793967002D63FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				34D93299297D316B0046D70F /* XCRemoteSwiftPackageReference "MonthYearWheelPicker" */,
 			);
 			productRefGroup = 34D010392970409D00258959 /* Products */;
 			projectDirPath = "";
@@ -390,28 +466,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34BEB613297A9205000AC02E /* Fee.swift in Sources */,
 				34D6927829716EBC007B3F40 /* OnboardingGeneralViewController.swift in Sources */,
 				34D010622970516F00258959 /* EmbedView.swift in Sources */,
 				34135E14297545D40055F198 /* AccountViewController.swift in Sources */,
+				34BEB623297BEC90000AC02E /* FeeCreator.swift in Sources */,
 				34D010562970487700258959 /* UIView.swift in Sources */,
+				34D932A1297D9B5D0046D70F /* CardTransitionManager.swift in Sources */,
+				34BEB61D297BE455000AC02E /* FeeSelectorTableViewCell.swift in Sources */,
 				34D0105B29704F7700258959 /* MainPageViewController.swift in Sources */,
 				34135E1C29754DDF0055F198 /* CustomTextField.swift in Sources */,
+				34C6FF81297ECF0400E70182 /* FirebaseFireStore.swift in Sources */,
+				34D9329D297D3CD10046D70F /* Various.swift in Sources */,
 				34FFF7F3297943AB002D63FB /* AuthentificationError.swift in Sources */,
 				34FFF7F52979582F002D63FB /* LaunchViewController.swift in Sources */,
 				34D010402970409D00258959 /* MainViewController.swift in Sources */,
+				34C6FF83297EE85F00E70182 /* FeeTuples.swift in Sources */,
 				34D692692971568F007B3F40 /* Delegates.swift in Sources */,
 				34F00255297457030097C787 /* FirebaseAuthentication.swift in Sources */,
 				3459AD742977E7DB00A26C68 /* String.swift in Sources */,
 				340564452973F49400A5CCF1 /* NSLayoutConstraints.swift in Sources */,
+				34BEB61F297BE864000AC02E /* FeeSelector.swift in Sources */,
+				34BEB621297BEB1B000AC02E /* FeeTextFieldTableViewCell.swift in Sources */,
+				34D9329F297D64730046D70F /* FeeActionTableViewCell.swift in Sources */,
 				34D6926F29715FA5007B3F40 /* HomeViewController.swift in Sources */,
 				346779F02971A731002D2A79 /* UILabel.swift in Sources */,
+				34BEB616297BDFF9000AC02E /* FeeCreatorViewController.swift in Sources */,
 				34D6927A29718FE5007B3F40 /* OnboardingViewController.swift in Sources */,
 				340564432973F40500A5CCF1 /* UIColor.swift in Sources */,
 				34D0106029704FE000258959 /* PageViewControllerDataSource.swift in Sources */,
+				34BEB627297C511C000AC02E /* ModalView.swift in Sources */,
+				34C6FF7F297ECBCB00E70182 /* User.swift in Sources */,
 				34D0105929704DF500258959 /* UIViewController.swift in Sources */,
+				34BEB61B297BE23A000AC02E /* FeeTitleTableViewCell.swift in Sources */,
 				3405644A29743E5C00A5CCF1 /* ViewModelsData.swift in Sources */,
 				34FFF7F7297960B6002D63FB /* Defaults.swift in Sources */,
-				34D692722971608A007B3F40 /* HomeViewTableViewCell.swift in Sources */,
 				34D6926C29715CD4007B3F40 /* Enums.swift in Sources */,
 				34D0103C2970409D00258959 /* AppDelegate.swift in Sources */,
 				34135E23297576950055F198 /* AccountHelperTextTableViewCell.swift in Sources */,
@@ -419,6 +508,7 @@
 				34D6927629716D5A007B3F40 /* OnboardingPageViewController.swift in Sources */,
 				34135E16297546D50055F198 /* AccountFieldsTableViewCell.swift in Sources */,
 				3405644C29744C9300A5CCF1 /* UIStackView.swift in Sources */,
+				34BEB625297C45A8000AC02E /* FeeCreatorUIPicker.swift in Sources */,
 				349A4E4829705EDA0052800B /* UIButton.swift in Sources */,
 				34D01053297045BA00258959 /* NavigationBarView.swift in Sources */,
 				34135E252975773F0055F198 /* AccountActionButtonTableViewCell.swift in Sources */,
@@ -426,7 +516,9 @@
 				34135E1A29754A340055F198 /* CustomUITextField.swift in Sources */,
 				3405644829743E1700A5CCF1 /* OnboardingCards.swift in Sources */,
 				34135E1E297554EC0055F198 /* AccountPage.swift in Sources */,
+				347D6680297FD546009054BA /* FeeCreatorAddDataPrompt.swift in Sources */,
 				34D0105D29704FA800258959 /* UIPageViewController.swift in Sources */,
+				34C6FF7D297E81C700E70182 /* UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,6 +744,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		34D93299297D316B0046D70F /* XCRemoteSwiftPackageReference "MonthYearWheelPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bendodson/MonthYearWheelPicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		34FFF7E329793967002D63FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -663,6 +763,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		34C6FF85297EEA1500E70182 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34FFF7E329793967002D63FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
 		34FFF7E429793967002D63FB /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 34FFF7E329793967002D63FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

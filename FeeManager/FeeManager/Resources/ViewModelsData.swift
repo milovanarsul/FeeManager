@@ -7,6 +7,8 @@
 
 import Foundation
 
+///ONBOARDING
+
 let onboardingCards: [OnboardingCards] = [
     OnboardingCards(image: "onboarding1", mainLabel: "Salut!", secondaryLabel: "În următoarele momente îți vom prezenta Aplicația FeeManager"),
     OnboardingCards(image: "onboarding2", mainLabel: "Manageriază-ți amenzile", secondaryLabel: "Îți poți introduce amenzile direct în aplicație pentru a nu uita de ele"),
@@ -29,3 +31,28 @@ let signupTextFieldsData: [CustomTextField] = [
 ]
 
 let signupPage = AccountPage(title: "Signup", textFields: signupTextFieldsData, helpText: "Toate câmpurile sunt obligatorii!", buttonText: "Signup", accountAction: .signup)
+
+let feeCreatorSelectors: [FeeSelector] = [
+    FeeSelector(label: "Tipul persoanei", options: tipulPersoanei, type: .select),
+    FeeSelector(label: "Județ", options: judete, type: .select),
+    FeeSelector(label: "Instituție", options: institutie["ALBA"], type: .select),
+    FeeSelector(label: "Data întocmirii procesului verbal", type: .date),
+    FeeSelector(label: "Data comunicării procesului verbal", type: .date),
+    FeeSelector(label: "Poză proces verbal", type: .image),
+]
+
+let feeCreatorFields: [CustomTextField] = [
+    CustomTextField(placeholder: "Nume amendă"),
+    CustomTextField(placeholder: "Serie proces verbal"),
+    CustomTextField(placeholder: "Număr proces verbal"),
+    CustomTextField(placeholder: "Explicație"),
+    CustomTextField(placeholder: "Sumă"),
+    CustomTextField(placeholder: "CNP al persoanei care face plata", text: FirebaseFireStore.currentUserData.cnpAlPersoaneiCareFacePlata),
+    CustomTextField(placeholder: "CNP al persoanei pentru care se face plata"),
+    CustomTextField(placeholder: "Nume și prenume", text: FirebaseFireStore.currentUserData.fullName),
+    CustomTextField(placeholder: "Adresă poștală", text: FirebaseFireStore.currentUserData.adresaPostala),
+    CustomTextField(placeholder: "Email", text: FirebaseAuthentication.authentication.currentUser?.email)
+]
+
+let feeCreatorData = FeeCreator(titleAction: .create, selectors: feeCreatorSelectors, fields: feeCreatorFields)
+
