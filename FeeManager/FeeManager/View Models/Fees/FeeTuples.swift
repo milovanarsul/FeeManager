@@ -15,4 +15,8 @@ class FeeTuple: Codable{
         self.integer = tuple.0
         self.string = tuple.1
     }
+    
+    func tuple() -> [(Int, String)]{
+        return [(integer, string)]
+    }
 }

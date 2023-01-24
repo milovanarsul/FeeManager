@@ -22,14 +22,5 @@ class FeeSelector{
     }
     
     init(){}
-    
-    func print(){
-        Swift.print(options)
-    }
 }
 
-func printFeeSelectors(array: [FeeSelector]){
-    for item in array{
-        print("\(item.options)\n")
-    }
-}

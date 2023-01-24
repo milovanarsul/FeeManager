@@ -30,7 +30,7 @@ class FeeCreatorViewController: UIViewController{
     
     var data: FeeCreator?
     
-    init(data: FeeCreator){
+    init(data: FeeCreator, isViewer: Bool? = false){
         self.data = data
         
         super.init(nibName: nil, bundle: nil)
@@ -93,20 +93,20 @@ extension FeeCreatorViewController: UITableViewDelegate, UITableViewDataSource{
 }
 
 extension FeeCreatorViewController: FeeCreatorDelegate{
-    func updateSelectorCell(answer: [(Int, String)]){
-        let currentCell = tableView.cellForRow(at: currentCellIndex) as! FeeSelectorTableViewCell
-        let currentOldFeeCreator = feeCreatorCells[currentCellIndex.item] as! FeeSelectorTableViewCell
+    func updateSelectorCell(answer: [(Int, String)], index: IndexPath){
+        let currentCell = feeCreatorCells[index.item] as! FeeSelectorTableViewCell
+        let currentOldFeeCreator = feeCreatorCells[index.item] as! FeeSelectorTableViewCell
         let currentNewFeeCreator = FeeSelector(label: currentOldFeeCreator.data!.label!, options: answer, type: currentOldFeeCreator.data!.type!)
         currentCell.data = currentNewFeeCreator
         
-        if currentCellIndex.item == 3 {
-            let nextIndexPath = IndexPath(row: currentCellIndex.item + 1, section: 0)
-            let nextCell = tableView.cellForRow(at: nextIndexPath) as! FeeSelectorTableViewCell
+        if index.item == 3 {
+            let nextIndexPath = IndexPath(row: index.item + 1, section: 0)
+            let nextCell = feeCreatorCells[nextIndexPath.item] as! FeeSelectorTableViewCell
             let nextOldFeeCreator = feeCreatorCells[nextIndexPath.item] as! FeeSelectorTableViewCell
             let nextNewFeeCreator = FeeSelector(label: nextOldFeeCreator.data!.label!, options: institutie[answer.first!.1], type: nextOldFeeCreator.data!.type!)
             nextCell.data = nextNewFeeCreator
         
-            feeCreatorData.selectors![currentCellIndex.item - 1].options = institutie[answer.first!.1]!
+            feeCreatorData.selectors![index.item - 1].options = institutie[answer.first!.1]!
         }
         
         tableView.reloadData()
@@ -156,6 +156,40 @@ extension FeeCreatorViewController: FeeCreatorDelegate{
         
         tableView.reloadData()
         fee = Fee()
+    }
+    
+    func initializeFeeTable(fee: Fee){
+        for cellIndex in 1..<feeCreatorCells.count{
+            let cell = feeCreatorCells[cellIndex]
+            
+            switch cellIndex{
+            case 2:
+                delegates.feeCreator.updateSelectorCell(answer: [(1, fee.attributesStringArray(index: cellIndex).1!)], index: IndexPath(row: cellIndex, section: 0))
+            case 3:
+                delegates.feeCreator.updateSelectorCell(answer: [(1, fee.attributesStringArray(index: cellIndex).1!)], index: IndexPath(row: cellIndex, section: 0))
+            default:
+                switch cell{
+                    case is FeeTextFieldTableViewCell:
+                        let textCell = cell as! FeeTextFieldTableViewCell
+                        textCell.customTextField.text = fee.attributesStringArray(index: cellIndex).1
+                        //textCell.customTextField.placeholderColor = .black
+                        //textCell.customTextField.placeholder = textCell.data?.placeholder
+                    case is FeeSelectorTableViewCell:
+                        let selectorCell = cell as! FeeSelectorTableViewCell
+                        switch selectorCell.data?.type{
+                            case .date:
+                                selectorCell.datePicker.date = stringToDate(string: fee.attributesStringArray(index: cellIndex).1!)
+                            case .image:
+                                ()
+                            default:
+                                ()
+                        }
+                    default:
+                        ()
+                }
+            }
+        }
+        tableView.reloadData()
     }
 }
 

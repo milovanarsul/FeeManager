@@ -13,6 +13,12 @@ func formatDate(date: Date) -> String{
     return dateFormatter.string(from: date)
 }
 
+func stringToDate(string: String) -> Date{
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM/dd/yyyy"
+    return dateFormatter.date(from: string)!
+}
+
 func convertToCGFloat(string: String) -> CGFloat{
     if let n = NumberFormatter().number(from: string){
         return CGFloat(truncating: n)

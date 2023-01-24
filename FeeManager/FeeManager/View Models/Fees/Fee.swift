@@ -75,6 +75,47 @@ class Fee: Codable{
             dataComunicariiProcesuluiVerbal = formatDate(date: Date())
         }
     }
+    
+    func attributesStringArray(index: Int) -> (String?, String?){
+        switch index{
+        case 1:
+            return ("", self.numeAmenda ?? "")
+        case 2:
+            return ("Tipul persoanei", self.personType?.string ?? "")
+        case 3:
+            return ("Județ", self.judet?.string ?? "")
+        case 4:
+            return ("Instituție", self.institutie?.string ?? "")
+        case 5:
+            return ("Serie proces verbal", self.serieProcesVerbal ?? "")
+        case 6:
+            return ("Număr proces verbal", self.numarProcesVerbal ?? "")
+        case 7:
+            return ("Data întocmirii procesului verbal", self.dataIntocmiriiProcesuluiVerbal ?? "")
+        case 8:
+            return ("Data comunicării procesului verbal", self.dataComunicariiProcesuluiVerbal ?? "")
+        case 9:
+            return ("Poza proces varbal", "Poza")
+        case 10:
+            return ("Explicați", self.explicatie ?? "")
+        case 11:
+            return ("Sumă", String(self.suma ?? 0))
+        case 12:
+            return ("CNP al persoanei care face plata", self.cnpAlPersoaneiCareFacePlata ?? "")
+        case 13:
+            return ("CNP al persoanei pentru care se face plata", self.cnpAlPersoaneiPentruCareSeFacePlata ?? "")
+        case 14:
+            return ("Nume și prenume", FirebaseFireStore.currentUserData.fullName ?? "")
+        case 15:
+            return ("Adresă poștală", FirebaseFireStore.currentUserData.adresaPostala ?? "")
+        case 16:
+            return ("Email", FirebaseAuthentication.authentication.currentUser?.email ?? "")
+        default:
+            return ("", "")
+        }
+    }
+
+
 }
 
 var fee = Fee()

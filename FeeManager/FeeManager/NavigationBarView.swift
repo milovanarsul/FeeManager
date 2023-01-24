@@ -32,7 +32,7 @@ class NavigationBarView: UIView{
     lazy var profileButton: UIButton = {
         let button = UIButton()
         button.initializeIcon(backgroundImage: UIImage(systemName: "person.circle"))
-        button.addTarget(self, action: #selector(analyticsButtonPressed(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(profileButtonPressed(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -144,14 +144,14 @@ class NavigationBarView: UIView{
                 case true:
                     plusButton.transform = CGAffineTransform(rotationAngle: 0)
                     buttonTapped = false
-                    delegates.main.addFee(type: .hide)
+                    delegates.main.addFee(type: .hide, data: feeCreatorData)
                     delegates.feeCreator.resetTable()
                     customContainerView!.removeFromSuperview()
                     fee = Fee()
                 case false:
                     plusButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
                     buttonTapped = true
-                    delegates.main.addFee(type: .show)
+                    delegates.main.addFee(type: .show, data: feeCreatorData)
             }
         })
     }
@@ -165,9 +165,24 @@ class NavigationBarView: UIView{
         currentItemLineAnimation(animationDirection: .backwards)
     }
     
-    @objc func analyticsButtonPressed(_ sender: UIButton){
-        delegates.navigationBar.goToPage(pageIndex: 1, direction: .forward)
-        currentItemLineAnimation(animationDirection: .forwards)
+    @objc func profileButtonPressed(_ sender: UIButton){
+        homeButton.isHidden = !buttonTapped
+        profileButton.isHidden = !buttonTapped
+        currentItemLine.isHidden = !buttonTapped
+        
+        UIView.animate(withDuration: 0.3, animations: { [self] in
+            switch buttonTapped{
+                case true:
+                    plusButton.transform = CGAffineTransform(rotationAngle: 0)
+                    buttonTapped = false
+                    delegates.main.accountView(type: .hide)
+                    customContainerView!.removeFromSuperview()
+                case false:
+                    plusButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
+                    buttonTapped = true
+                delegates.main.accountView(type: .show)
+            }
+        })
     }
 }
 
@@ -196,5 +211,11 @@ extension NavigationBarView: NavigationBarViewDelegate{
     
     func removeView(){
         plusButtonAction()
+    }
+    
+    func customFeeCreator(data: FeeCreator){
+        plusButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
+        buttonTapped = true
+        delegates.main.addFee(type: .show, data: data)
     }
 }

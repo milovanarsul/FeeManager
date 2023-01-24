@@ -20,6 +20,9 @@
 		34135E21297555A70055F198 /* AccountHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E20297555A70055F198 /* AccountHeaderTableViewCell.swift */; };
 		34135E23297576950055F198 /* AccountHelperTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E22297576950055F198 /* AccountHelperTextTableViewCell.swift */; };
 		34135E252975773F0055F198 /* AccountActionButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34135E242975773F0055F198 /* AccountActionButtonTableViewCell.swift */; };
+		344D7EE9298028010002B240 /* HomeViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344D7EE8298028010002B240 /* HomeViewControllerTableViewCell.swift */; };
+		344D7EEB298029030002B240 /* CellTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344D7EEA298029030002B240 /* CellTitle.swift */; };
+		344D7EED2980299D0002B240 /* CellFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344D7EEC2980299D0002B240 /* CellFields.swift */; };
 		3459AD742977E7DB00A26C68 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459AD732977E7DB00A26C68 /* String.swift */; };
 		346779F02971A731002D2A79 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346779EF2971A731002D2A79 /* UILabel.swift */; };
 		347D6680297FD546009054BA /* FeeCreatorAddDataPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347D667F297FD546009054BA /* FeeCreatorAddDataPrompt.swift */; };
@@ -66,8 +69,10 @@
 		34D6928929719F3A007B3F40 /* IBMPlexSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D6928229719F3A007B3F40 /* IBMPlexSans-Italic.ttf */; };
 		34D9329D297D3CD10046D70F /* Various.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D9329C297D3CD10046D70F /* Various.swift */; };
 		34D9329F297D64730046D70F /* FeeActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D9329E297D64730046D70F /* FeeActionTableViewCell.swift */; };
-		34D932A1297D9B5D0046D70F /* CardTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D932A0297D9B5D0046D70F /* CardTransitionManager.swift */; };
 		34F00255297457030097C787 /* FirebaseAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F00254297457030097C787 /* FirebaseAuthentication.swift */; };
+		34F347A0298054D0002E0CD3 /* PresentFeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3479F298054D0002E0CD3 /* PresentFeeViewController.swift */; };
+		34F347A22980788C002E0CD3 /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F347A12980788C002E0CD3 /* EmptyCell.swift */; };
+		34F347A6298081DD002E0CD3 /* AccountViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F347A5298081DD002E0CD3 /* AccountViewerViewController.swift */; };
 		34FFF7E529793967002D63FB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 34FFF7E429793967002D63FB /* FirebaseAnalytics */; };
 		34FFF7E729793967002D63FB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 34FFF7E629793967002D63FB /* FirebaseAuth */; };
 		34FFF7E929793967002D63FB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 34FFF7E829793967002D63FB /* FirebaseCrashlytics */; };
@@ -94,6 +99,9 @@
 		34135E20297555A70055F198 /* AccountHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		34135E22297576950055F198 /* AccountHelperTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHelperTextTableViewCell.swift; sourceTree = "<group>"; };
 		34135E242975773F0055F198 /* AccountActionButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountActionButtonTableViewCell.swift; sourceTree = "<group>"; };
+		344D7EE8298028010002B240 /* HomeViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTableViewCell.swift; sourceTree = "<group>"; };
+		344D7EEA298029030002B240 /* CellTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTitle.swift; sourceTree = "<group>"; };
+		344D7EEC2980299D0002B240 /* CellFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFields.swift; sourceTree = "<group>"; };
 		3459AD732977E7DB00A26C68 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		346779EF2971A731002D2A79 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		347D667F297FD546009054BA /* FeeCreatorAddDataPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeCreatorAddDataPrompt.swift; sourceTree = "<group>"; };
@@ -141,8 +149,10 @@
 		34D6928229719F3A007B3F40 /* IBMPlexSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Italic.ttf"; sourceTree = "<group>"; };
 		34D9329C297D3CD10046D70F /* Various.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Various.swift; sourceTree = "<group>"; };
 		34D9329E297D64730046D70F /* FeeActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeActionTableViewCell.swift; sourceTree = "<group>"; };
-		34D932A0297D9B5D0046D70F /* CardTransitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransitionManager.swift; sourceTree = "<group>"; };
 		34F00254297457030097C787 /* FirebaseAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentication.swift; sourceTree = "<group>"; };
+		34F3479F298054D0002E0CD3 /* PresentFeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentFeeViewController.swift; sourceTree = "<group>"; };
+		34F347A12980788C002E0CD3 /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
+		34F347A5298081DD002E0CD3 /* AccountViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewerViewController.swift; sourceTree = "<group>"; };
 		34FFF7F2297943AB002D63FB /* AuthentificationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationError.swift; sourceTree = "<group>"; };
 		34FFF7F42979582F002D63FB /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		34FFF7F6297960B6002D63FB /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
@@ -185,6 +195,7 @@
 				34135E13297545D40055F198 /* AccountViewController.swift */,
 				34FFF7F2297943AB002D63FB /* AuthentificationError.swift */,
 				34135E1F297555730055F198 /* Table View Cells */,
+				34F347A429808189002E0CD3 /* AccountViewer */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -198,6 +209,16 @@
 				34135E242975773F0055F198 /* AccountActionButtonTableViewCell.swift */,
 			);
 			path = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		344D7EE7298027B10002B240 /* HomeViewControllerTableViewCellCells */ = {
+			isa = PBXGroup;
+			children = (
+				344D7EEA298029030002B240 /* CellTitle.swift */,
+				344D7EEC2980299D0002B240 /* CellFields.swift */,
+				34F347A12980788C002E0CD3 /* EmptyCell.swift */,
+			);
+			path = HomeViewControllerTableViewCellCells;
 			sourceTree = "<group>";
 		};
 		34BEB60D297A89F6000AC02E /* Fees */ = {
@@ -327,7 +348,9 @@
 			isa = PBXGroup;
 			children = (
 				34D6926E29715FA5007B3F40 /* HomeViewController.swift */,
-				34D932A0297D9B5D0046D70F /* CardTransitionManager.swift */,
+				344D7EE8298028010002B240 /* HomeViewControllerTableViewCell.swift */,
+				34F3479F298054D0002E0CD3 /* PresentFeeViewController.swift */,
+				344D7EE7298027B10002B240 /* HomeViewControllerTableViewCellCells */,
 			);
 			path = "Home Page";
 			sourceTree = "<group>";
@@ -372,6 +395,14 @@
 				34C6FF80297ECF0400E70182 /* FirebaseFireStore.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		34F347A429808189002E0CD3 /* AccountViewer */ = {
+			isa = PBXGroup;
+			children = (
+				34F347A5298081DD002E0CD3 /* AccountViewerViewController.swift */,
+			);
+			path = AccountViewer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,7 +503,6 @@
 				34135E14297545D40055F198 /* AccountViewController.swift in Sources */,
 				34BEB623297BEC90000AC02E /* FeeCreator.swift in Sources */,
 				34D010562970487700258959 /* UIView.swift in Sources */,
-				34D932A1297D9B5D0046D70F /* CardTransitionManager.swift in Sources */,
 				34BEB61D297BE455000AC02E /* FeeSelectorTableViewCell.swift in Sources */,
 				34D0105B29704F7700258959 /* MainPageViewController.swift in Sources */,
 				34135E1C29754DDF0055F198 /* CustomTextField.swift in Sources */,
@@ -489,10 +519,12 @@
 				34BEB61F297BE864000AC02E /* FeeSelector.swift in Sources */,
 				34BEB621297BEB1B000AC02E /* FeeTextFieldTableViewCell.swift in Sources */,
 				34D9329F297D64730046D70F /* FeeActionTableViewCell.swift in Sources */,
+				34F347A6298081DD002E0CD3 /* AccountViewerViewController.swift in Sources */,
 				34D6926F29715FA5007B3F40 /* HomeViewController.swift in Sources */,
 				346779F02971A731002D2A79 /* UILabel.swift in Sources */,
 				34BEB616297BDFF9000AC02E /* FeeCreatorViewController.swift in Sources */,
 				34D6927A29718FE5007B3F40 /* OnboardingViewController.swift in Sources */,
+				344D7EEB298029030002B240 /* CellTitle.swift in Sources */,
 				340564432973F40500A5CCF1 /* UIColor.swift in Sources */,
 				34D0106029704FE000258959 /* PageViewControllerDataSource.swift in Sources */,
 				34BEB627297C511C000AC02E /* ModalView.swift in Sources */,
@@ -504,15 +536,19 @@
 				34D6926C29715CD4007B3F40 /* Enums.swift in Sources */,
 				34D0103C2970409D00258959 /* AppDelegate.swift in Sources */,
 				34135E23297576950055F198 /* AccountHelperTextTableViewCell.swift in Sources */,
+				344D7EED2980299D0002B240 /* CellFields.swift in Sources */,
 				34D0103E2970409D00258959 /* SceneDelegate.swift in Sources */,
+				344D7EE9298028010002B240 /* HomeViewControllerTableViewCell.swift in Sources */,
 				34D6927629716D5A007B3F40 /* OnboardingPageViewController.swift in Sources */,
 				34135E16297546D50055F198 /* AccountFieldsTableViewCell.swift in Sources */,
 				3405644C29744C9300A5CCF1 /* UIStackView.swift in Sources */,
 				34BEB625297C45A8000AC02E /* FeeCreatorUIPicker.swift in Sources */,
 				349A4E4829705EDA0052800B /* UIButton.swift in Sources */,
 				34D01053297045BA00258959 /* NavigationBarView.swift in Sources */,
+				34F347A22980788C002E0CD3 /* EmptyCell.swift in Sources */,
 				34135E252975773F0055F198 /* AccountActionButtonTableViewCell.swift in Sources */,
 				34135E21297555A70055F198 /* AccountHeaderTableViewCell.swift in Sources */,
+				34F347A0298054D0002E0CD3 /* PresentFeeViewController.swift in Sources */,
 				34135E1A29754A340055F198 /* CustomUITextField.swift in Sources */,
 				3405644829743E1700A5CCF1 /* OnboardingCards.swift in Sources */,
 				34135E1E297554EC0055F198 /* AccountPage.swift in Sources */,

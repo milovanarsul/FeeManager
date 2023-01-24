@@ -39,4 +39,14 @@ class User: Codable{
         
         return true
     }
+    
+    func userToArray() -> [(String, String)]{
+        var array = [(String, String)]()
+        array.append(("Nume", self.fullName ?? ""))
+        array.append(("Tipul persoanei", self.personType?.string ?? ""))
+        array.append(("Adresa postala", self.adresaPostala ?? ""))
+        array.append(("CNP", self.cnpAlPersoaneiCareFacePlata ?? ""))
+        
+        return array
+    }
 }

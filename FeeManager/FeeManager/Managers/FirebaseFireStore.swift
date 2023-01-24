@@ -15,7 +15,7 @@ class FirebaseFireStore{
     static let feeStore = store.collection("fees")
     static var currentUserData = User()
     static var feeCount: Int?
-    static var fees: [Fee] = []
+    static var fees = [Fee]()
     
     ///ADD USER DATA
     
@@ -27,11 +27,16 @@ class FirebaseFireStore{
         }
     }
     
-    static func addFeeToUser(fee: Fee){
+    static func addFeeToUser(fee: Fee, index: Int? = nil){
         do {
-            feeCount! += 1
-            try feeStore.document("fee\(feeCount!)").setData(from: fee)
-            store.updateData(["feeCount" : feeCount!])
+            if let index = index {
+                try feeStore.document("fee\(index)").setData(from: fee)
+            } else {
+                feeCount! += 1
+                try feeStore.document("fee\(feeCount!)").setData(from: fee)
+                store.updateData(["feeCount" : feeCount!])
+                fees.append(fee)
+            }
         } catch let error {
             print("Error writing fee to Firestore: \(error)")
         }
@@ -56,18 +61,39 @@ class FirebaseFireStore{
     static func getFees(completion:  @escaping (_ finished: Bool) -> Void){
         getUserData(completion: {finished in
             if finished{
-                for index in 0...feeCount!{
-                    feeStore.document("fee\(index)").getDocument(as: Fee.self) { result in
-                        switch result {
-                        case .success(let success):
-                            fees.append(success)
-                        case .failure(let failure):
-                            print("Error decoding: \(failure)")
+                feeStore.getDocuments(){ (querySnapshot, err) in
+                    if let err = err{
+                        print("Error getting documents: \(err)")
+                    } else {
+                        for document in querySnapshot!.documents{
+                            do {
+                                try fees.append(document.data(as: Fee.self))
+                            } catch let error {
+                                print("Error decoding fee: \(error)")
+                            }
                         }
                     }
+                    completion(true)
                 }
-                completion(true)
             }
         })
+    }
+    
+    ///DELETE DOCUMENTS
+    
+    static func deleteFee(){
+        for index in 0...feeCount!{
+            feeStore.document("fee\(index)").delete(){ err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                }
+            }
+        }
+        currentUserData.feeCount = fees.count - 1
+        addDetailsToUser(userDetails: currentUserData)
+        
+        for index in 0..<fees.count{
+            addFeeToUser(fee: fees[index], index: index)
+        }
     }
 }

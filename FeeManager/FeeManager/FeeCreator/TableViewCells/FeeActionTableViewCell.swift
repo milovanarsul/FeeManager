@@ -47,7 +47,10 @@ class FeeActionTableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
+    var editingIndex: Int?
+    
     func setup(){
+        
         contentView.backgroundColor = .white
         contentView.addSubview(buttonsHorizontalStack)
         
@@ -63,13 +66,19 @@ class FeeActionTableViewCell: UITableViewCell {
     
     @objc func saveButtonPressed(_ sender: UIButton){
         fee.beautify()
-        FirebaseFireStore.addFeeToUser(fee: fee)
+        
+        if let editingIndex = editingIndex{
+            FirebaseFireStore.addFeeToUser(fee: fee, index: editingIndex)
+        } else {
+            FirebaseFireStore.addFeeToUser(fee: fee)
+        }
         
         if FirebaseFireStore.currentUserData.hasDetails() == false{
             let userDetails = User(personType: fee.personType!, adresaPostala: fee.adresaPostala!, cnpAlPersoaneiCareFacePlata: fee.cnpAlPersoaneiCareFacePlata!)
             
             delegates.main.presentPickerView(pickerViewController: FeeCreatorAddDataPrompt(data: userDetails), animationType: .show)
         } else {
+            delegates.home.reloadTableView()
             delegates.navigationBarView.removeView()
         }
     }

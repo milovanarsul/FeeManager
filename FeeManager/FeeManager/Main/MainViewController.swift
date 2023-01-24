@@ -34,7 +34,6 @@ class MainViewController: UIViewController {
     
     lazy var feeCreator: UIView = {
         let view = UIView()
-        FeeManager.embed.feeCreatorViewController(parent: self, container: view)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -123,7 +122,7 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainDelegate{
-    func addFee(type: AnimationType){
+    func addFee(type: AnimationType, data: FeeCreator){
         navigationBarWidthConstraint!.isActive = false
         navigationBarBottomConstraint!.isActive = false
         navigationBarHeightConstraint!.isActive = false
@@ -148,6 +147,38 @@ extension MainViewController: MainDelegate{
             self.view.layoutIfNeeded()
         }, completion: { finished in
             if type == .show{
+                FeeManager.embed.feeCreatorViewController(parent: self, container: self.feeCreator, data: data)
+                delegates.navigationBarView.addView(view: self.feeCreator)
+            }
+        })
+    }
+    
+    func accountView(type: AnimationType){
+        navigationBarWidthConstraint!.isActive = false
+        navigationBarBottomConstraint!.isActive = false
+        navigationBarHeightConstraint!.isActive = false
+        
+        switch type{
+        case .show:
+            navigationBarWidthConstraint = navigationBar.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1)
+            navigationBarBottomConstraint = navigationBar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+            navigationBarHeightConstraint = navigationBar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
+        case .hide:
+            navigationBarWidthConstraint = navigationBar.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7)
+            navigationBarBottomConstraint = navigationBar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
+            navigationBarHeightConstraint = navigationBar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.07)
+        }
+        
+        navigationBarWidthConstraint!.isActive = true
+        navigationBarBottomConstraint!.isActive = true
+        navigationBarHeightConstraint!.isActive = true
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.navigationBar.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+        }, completion: { finished in
+            if type == .show{
+                FeeManager.embed.accountViewerViewController(parent: self, container: self.feeCreator)
                 delegates.navigationBarView.addView(view: self.feeCreator)
             }
         })
@@ -183,5 +214,15 @@ extension MainViewController: MainDelegate{
                 modalSubView = nil
             }
         })
+    }
+    
+    func presentFee(fee: UIViewController){
+        if let sheet = fee.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 24
+        }
+        
+        present(fee, animated: true, completion: nil)
     }
 }

@@ -56,3 +56,5 @@ let feeCreatorFields: [CustomTextField] = [
 
 let feeCreatorData = FeeCreator(titleAction: .create, selectors: feeCreatorSelectors, fields: feeCreatorFields)
 
+
+

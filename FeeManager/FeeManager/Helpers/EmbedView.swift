@@ -35,13 +35,18 @@ class EmbedView{
         delegates.navigationBar = child
     }
     
-    func feeCreatorViewController(parent: MainViewController, container: UIView){
-        let child = FeeCreatorViewController(data: feeCreatorData)
+    func feeCreatorViewController(parent: MainViewController, container: UIView, data: FeeCreator){
+        let child = FeeCreatorViewController(data: data)
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
         delegates.feeCreator = child
     }
     
     func feePickerViewController(parent: MainViewController, container: UIView, child: UIViewController){
+        embed(parent: parent, container: container, child: child, previous: parent.children.first)
+    }
+    
+    func accountViewerViewController(parent: MainViewController, container: UIView){
+        let child = AccountViewViewController()
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
     }
 }

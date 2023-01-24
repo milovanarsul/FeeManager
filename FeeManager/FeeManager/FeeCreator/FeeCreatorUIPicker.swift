@@ -64,7 +64,7 @@ extension FeeCreatorPicker: UIPickerViewDelegate, UIPickerViewDataSource{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let choice = data![row]
         appendFee(answer: choice, index: currentIndex!)
-        delegates.feeCreator.updateSelectorCell(answer: [choice])
+        delegates.feeCreator.updateSelectorCell(answer: [choice], index: IndexPath(row: currentIndex!, section: 0))
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

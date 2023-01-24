@@ -15,6 +15,7 @@ class Delegates{
     var navigationBarView: NavigationBarViewDelegate! = nil
     var main: MainDelegate! = nil
     var feeCreator: FeeCreatorDelegate! = nil
+    var home: HomeViewControllerDelegate! = nil
     
     init(){}
 }
@@ -41,16 +42,24 @@ protocol NavigationBarViewDelegate{
     func startupAnimation()
     func addView(view: UIView)
     func removeView()
+    func customFeeCreator(data: FeeCreator)
 }
 
 protocol MainDelegate{
-    func addFee(type: AnimationType)
+    func addFee(type: AnimationType, data: FeeCreator)
     func presentPickerView(pickerViewController: UIViewController?, animationType: AnimationType)
+    func presentFee(fee: UIViewController)
+    func accountView(type: AnimationType)
 }
 
 protocol FeeCreatorDelegate{
-    func updateSelectorCell(answer: [(Int, String)])
+    func updateSelectorCell(answer: [(Int, String)], index: IndexPath)
     func resetTable()
+    func initializeFeeTable(fee: Fee)
+}
+
+protocol HomeViewControllerDelegate{
+    func reloadTableView()
 }
 
 let delegates: Delegates = Delegates()
