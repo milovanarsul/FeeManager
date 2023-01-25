@@ -44,6 +44,7 @@ class LaunchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         setup()
         
     }
@@ -71,7 +72,16 @@ class LaunchViewController: UIViewController {
         descriptionLabelBottomConstraint?.isActive = true
         descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        startupAnimation()
+        if defaults.bool(forKey: "notFirstLaunch") {
+            FirebaseAuthentication.getCurrentUserID()
+            FirebaseFireStore.getFees(completion: {finished in
+                if finished{
+                    self.startupAnimation()
+                }
+            })
+        } else {
+            startupAnimation()
+        }
     }
     
     func containerSetup(){
@@ -105,23 +115,17 @@ class LaunchViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){ [self] in
                 appName.removeFromSuperview()
                 descriptionLabel.removeFromSuperview()
+                roundedIcon.removeFromSuperview()
                 containerSetup()
                 
                 let notFirstLaunch = defaults.bool(forKey: "notFirstLaunch")
                 
                 if notFirstLaunch == false {
                     print("Onboarding presented")
-                    roundedIcon.removeFromSuperview()
                     onboarding()
                 } else {
                     print("Main presented")
-                    FirebaseAuthentication.getCurrentUserID()
-                    FirebaseFireStore.getFees(completion: {finished in
-                        if finished{
-                            self.roundedIcon.removeFromSuperview()
-                            self.main()
-                        }
-                    })
+                    self.main()
                 }
             }
         })

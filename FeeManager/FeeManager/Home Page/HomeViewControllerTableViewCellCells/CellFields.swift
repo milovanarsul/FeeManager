@@ -36,11 +36,11 @@ class CellFields: UITableViewCell{
         
         smallLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         smallLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 4).isActive = true
-        smallLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
+        smallLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
         
         text.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         text.topAnchor.constraint(equalTo: smallLabel.bottomAnchor, constant: 6).isActive = true
-        text.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
+        text.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
         
         view.translatesAutoresizingMaskIntoConstraints = false
         

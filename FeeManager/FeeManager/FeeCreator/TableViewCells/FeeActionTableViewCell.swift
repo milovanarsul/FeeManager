@@ -65,11 +65,14 @@ class FeeActionTableViewCell: UITableViewCell {
     }
     
     @objc func saveButtonPressed(_ sender: UIButton){
-        fee.beautify()
         
         if let editingIndex = editingIndex{
+            fee.editingFee(fee: fee, editingIndex: editingIndex)
             FirebaseFireStore.addFeeToUser(fee: fee, index: editingIndex)
+            delegates.feeCreator.resetTable()
+            fee = Fee()
         } else {
+            fee.beautify()
             FirebaseFireStore.addFeeToUser(fee: fee)
         }
         
@@ -78,8 +81,8 @@ class FeeActionTableViewCell: UITableViewCell {
             
             delegates.main.presentPickerView(pickerViewController: FeeCreatorAddDataPrompt(data: userDetails), animationType: .show)
         } else {
-            delegates.home.reloadTableView()
             delegates.navigationBarView.removeView()
+            delegates.home.reloadTableView()
         }
     }
 }

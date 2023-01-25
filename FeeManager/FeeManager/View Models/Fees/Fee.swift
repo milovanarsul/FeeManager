@@ -97,11 +97,11 @@ class Fee: Codable{
         case 9:
             return ("Poza proces varbal", "Poza")
         case 10:
-            return ("Explicați", self.explicatie ?? "")
+            return ("Explicație", self.explicatie ?? "")
         case 11:
             return ("Sumă", String(self.suma ?? 0))
         case 12:
-            return ("CNP al persoanei care face plata", self.cnpAlPersoaneiCareFacePlata ?? "")
+            return ("CNP al persoanei care face plata", FirebaseFireStore.currentUserData.cnpAlPersoaneiCareFacePlata ?? "")
         case 13:
             return ("CNP al persoanei pentru care se face plata", self.cnpAlPersoaneiPentruCareSeFacePlata ?? "")
         case 14:
@@ -114,8 +114,47 @@ class Fee: Codable{
             return ("", "")
         }
     }
-
-
+    
+    func editingFee(fee: Fee, editingIndex: Int){
+        for index in 1...16{
+            switch index{
+            case 1:
+                self.numeAmenda = fee.numeAmenda ?? FirebaseFireStore.fees[editingIndex].numeAmenda
+            case 2:
+                self.personType = fee.personType ?? FirebaseFireStore.fees[editingIndex].personType
+            case 3:
+                self.judet = fee.judet ?? FirebaseFireStore.fees[editingIndex].judet
+            case 4:
+                self.institutie = fee.institutie ?? FirebaseFireStore.fees[editingIndex].institutie
+            case 5:
+                self.serieProcesVerbal = fee.serieProcesVerbal ?? FirebaseFireStore.fees[editingIndex].serieProcesVerbal
+            case 6:
+                self.numarProcesVerbal = fee.numarProcesVerbal ?? FirebaseFireStore.fees[editingIndex].numarProcesVerbal
+            case 7:
+                self.dataIntocmiriiProcesuluiVerbal = fee.dataIntocmiriiProcesuluiVerbal ?? FirebaseFireStore.fees[editingIndex].dataIntocmiriiProcesuluiVerbal
+            case 8:
+                self.dataComunicariiProcesuluiVerbal = fee.dataComunicariiProcesuluiVerbal ?? FirebaseFireStore.fees[editingIndex].dataComunicariiProcesuluiVerbal
+            case 9:
+                self.pozaProcesVerbal = "Poza"
+            case 10:
+                self.explicatie = fee.explicatie ?? FirebaseFireStore.fees[editingIndex].explicatie
+            case 11:
+                self.suma = fee.suma ?? FirebaseFireStore.fees[editingIndex].suma
+            case 12:
+                self.cnpAlPersoaneiCareFacePlata = fee.cnpAlPersoaneiCareFacePlata ?? (FirebaseFireStore.fees[editingIndex].cnpAlPersoaneiCareFacePlata ?? FirebaseFireStore.currentUserData.cnpAlPersoaneiCareFacePlata)
+            case 13:
+                self.cnpAlPersoaneiPentruCareSeFacePlata = fee.cnpAlPersoaneiPentruCareSeFacePlata ?? FirebaseFireStore.fees[editingIndex].cnpAlPersoaneiPentruCareSeFacePlata
+            case 14:
+                self.numeSiPrenume = fee.numeSiPrenume ?? (FirebaseFireStore.fees[editingIndex].numeSiPrenume ?? FirebaseFireStore.currentUserData.fullName)
+            case 15:
+                self.adresaPostala = fee.adresaPostala ?? (FirebaseFireStore.fees[editingIndex].adresaPostala ?? FirebaseFireStore.currentUserData.adresaPostala)
+            case 16:
+                self.email = fee.email ?? (FirebaseFireStore.fees[editingIndex].email ?? FirebaseAuthentication.authentication.currentUser?.email)
+            default:
+                ()
+            }
+        }
+    }
 }
 
 var fee = Fee()

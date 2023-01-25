@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     
     lazy var navigationBar: UIView = {
         let view = NavigationBarView()
+        view.tag = 1
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -25,9 +26,8 @@ class MainViewController: UIViewController {
     lazy var mainPageViewController: UIView = {
         let view = UIView()
         FeeManager.embed.mainPageViewController(parent: self, container: view)
-        view.clipsToBounds = true
         view.layer.cornerRadius = 24
-        view.setShadow()
+        view.dropShadow = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -35,6 +35,14 @@ class MainViewController: UIViewController {
     lazy var feeCreator: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = true
+        return view
+    }()
+    
+    lazy var accountViewer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = true
         return view
     }()
     
@@ -54,6 +62,12 @@ class MainViewController: UIViewController {
         self.setup()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        navigationBar.viewWithTag(1)!.dropShadow = true
+    }
+    
     var welcomeTextTopConstraint: NSLayoutConstraint?
     var mainPageViewControllerHeightConstraint: NSLayoutConstraint?
     var navigationBarWidthConstraint: NSLayoutConstraint?
@@ -62,7 +76,7 @@ class MainViewController: UIViewController {
     var modalBottomConstraint: NSLayoutConstraint?
     
     func setup(){
-        view.backgroundColor = UIColor("#f5ecdf")
+        view.backgroundColor = .white
         view.addSubviews([welcomeText, mainPageViewController, navigationBar, modal])
         
         welcomeText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
@@ -122,7 +136,7 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainDelegate{
-    func addFee(type: AnimationType, data: FeeCreator){
+    func addFee(type: AnimationType, data: FeeCreator, completion: @escaping (_ finished: Bool) -> Void){
         navigationBarWidthConstraint!.isActive = false
         navigationBarBottomConstraint!.isActive = false
         navigationBarHeightConstraint!.isActive = false
@@ -148,7 +162,11 @@ extension MainViewController: MainDelegate{
         }, completion: { finished in
             if type == .show{
                 FeeManager.embed.feeCreatorViewController(parent: self, container: self.feeCreator, data: data)
+                self.feeCreator.isHidden = false
                 delegates.navigationBarView.addView(view: self.feeCreator)
+                completion(true)
+            } else {
+                self.feeCreator.isHidden = true
             }
         })
     }
@@ -162,7 +180,7 @@ extension MainViewController: MainDelegate{
         case .show:
             navigationBarWidthConstraint = navigationBar.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1)
             navigationBarBottomConstraint = navigationBar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
-            navigationBarHeightConstraint = navigationBar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
+            navigationBarHeightConstraint = navigationBar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.65)
         case .hide:
             navigationBarWidthConstraint = navigationBar.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7)
             navigationBarBottomConstraint = navigationBar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
@@ -178,8 +196,11 @@ extension MainViewController: MainDelegate{
             self.view.layoutIfNeeded()
         }, completion: { finished in
             if type == .show{
-                FeeManager.embed.accountViewerViewController(parent: self, container: self.feeCreator)
-                delegates.navigationBarView.addView(view: self.feeCreator)
+                FeeManager.embed.accountViewerViewController(parent: self, container: self.accountViewer)
+                self.accountViewer.isHidden = false
+                delegates.navigationBarView.addView(view: self.accountViewer)
+            } else {
+                self.accountViewer.isHidden = true
             }
         })
     }
@@ -217,6 +238,7 @@ extension MainViewController: MainDelegate{
     }
     
     func presentFee(fee: UIViewController){
+        fee.transitioningDelegate = self
         if let sheet = fee.sheetPresentationController {
             sheet.detents = [.large()]
             sheet.prefersGrabberVisible = true
@@ -224,5 +246,21 @@ extension MainViewController: MainDelegate{
         }
         
         present(fee, animated: true, completion: nil)
+    }
+    
+    func goToOnboarding(){
+        defaults.set(false, forKey: "notFirstLaunch")
+        presentView(view: LaunchViewController(), animated: true, presentationStyle: .fullScreen, dismissPrevious: false)
+        view.layoutIfNeeded()
+        removeFromParent()
+    }
+}
+
+extension MainViewController: UIViewControllerTransitioningDelegate{
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if dismissed is PresentFeeViewController{
+            delegates.home.reloadTableView()
+        }
+        return nil
     }
 }

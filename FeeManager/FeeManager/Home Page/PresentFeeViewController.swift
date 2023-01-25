@@ -11,7 +11,7 @@ import UIKit
 class PresentFeeViewController: UIViewController{
     lazy var editButton: UIButton = {
         let button = UIButton()
-        button.initialize(title: "Editează amenda", titleColor: .systemBlue, cornerRadius: 0, font: UIFont(name: "IBMPlexSans-Regular", size: 16)!, backgroundColor: .clear, image: UIImage(systemName: "pencil"), imagePlacement: .leading)
+        button.initialize(title: "Editează amenda", titleColor: .systemBlue, cornerRadius: 0, font: UIFont(name: "IBMPlexSans-Bold", size: 16)!, backgroundColor: .clear, image: UIImage(systemName: "pencil"), imagePlacement: .leading)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(editButtonTapped(_:)), for: .touchUpInside)
         return button
@@ -36,6 +36,7 @@ class PresentFeeViewController: UIViewController{
         button.layer.borderWidth = 2
         button.addTarget(self, action: #selector(payButtonPressed(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.isHidden = true
         return button
     }()
     
@@ -90,10 +91,13 @@ class PresentFeeViewController: UIViewController{
     @objc func editButtonTapped(_ sender: UIButton){
         dismiss(animated: true)
         delegates.home.reloadTableView()
-        delegates.navigationBarView.customFeeCreator(data: feeCreatorData)
-        (feeCreatorCells[feeCreatorCells.count - 1] as! FeeActionTableViewCell).editingIndex = currentIndex!
-        (feeCreatorCells[feeCreatorCells.count - 1] as! FeeActionTableViewCell).resetButton.isHidden = true
-        delegates.feeCreator.initializeFeeTable(fee: FirebaseFireStore.fees[currentIndex!])
+        delegates.navigationBarView.customFeeCreator(data: feeCreatorData, completion: {[self] finished in
+            if finished{
+                (feeCreatorCells[feeCreatorCells.count - 1] as! FeeActionTableViewCell).editingIndex = currentIndex!
+                (feeCreatorCells[feeCreatorCells.count - 1] as! FeeActionTableViewCell).resetButton.isHidden = true
+                delegates.feeCreator.initializeFeeTable(fee: FirebaseFireStore.fees[currentIndex!])
+            }
+        })
         
     }
     

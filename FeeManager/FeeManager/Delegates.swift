@@ -42,14 +42,15 @@ protocol NavigationBarViewDelegate{
     func startupAnimation()
     func addView(view: UIView)
     func removeView()
-    func customFeeCreator(data: FeeCreator)
+    func customFeeCreator(data: FeeCreator, completion: @escaping (_ finished: Bool) -> Void)
 }
 
 protocol MainDelegate{
-    func addFee(type: AnimationType, data: FeeCreator)
+    func addFee(type: AnimationType, data: FeeCreator, completion: @escaping (_ finished: Bool) -> Void)
     func presentPickerView(pickerViewController: UIViewController?, animationType: AnimationType)
     func presentFee(fee: UIViewController)
     func accountView(type: AnimationType)
+    func goToOnboarding()
 }
 
 protocol FeeCreatorDelegate{

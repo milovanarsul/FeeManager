@@ -12,7 +12,6 @@ class EmptyCell: UITableViewCell{
     lazy var plusButton: UIButton = {
         let button = UIButton()
         button.initializeIcon(backgroundImage: UIImage(systemName: "plus.circle"), backgroundColor: .clear, tintColour: UIColor("#4284aa"))
-        button.addTarget(self, action: #selector(plusButtonAction(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -38,9 +37,5 @@ class EmptyCell: UITableViewCell{
         plusButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.35).isActive = true
         plusButton.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.35).isActive = true
         
-    }
-    
-    @objc func plusButtonAction(_ sender: UIButton){
-        delegates.navigationBarView.customFeeCreator(data: feeCreatorData)
     }
 }

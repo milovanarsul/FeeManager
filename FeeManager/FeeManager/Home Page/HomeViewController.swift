@@ -29,6 +29,7 @@ class HomeViewController: UIViewController{
     
     func setup(){
         view.backgroundColor = .white
+        view.layer.cornerRadius = 24
         view.addSubview(tableView)
         
         tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -81,9 +82,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.item != 0 {
+        if FirebaseFireStore.fees.count >= 1 {
             let currentCell = tableView.cellForRow(at: indexPath) as! HomeViewControllerTableViewCell
             delegates.main.presentFee(fee: PresentFeeViewController(tableViewCell: currentCell, currentIndex: indexPath.item - 1))
+        } else {
+            delegates.navigationBarView.customFeeCreator(data: feeCreatorData, completion: {finished in})
         }
     }
 }

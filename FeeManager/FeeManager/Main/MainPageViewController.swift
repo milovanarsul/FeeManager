@@ -27,9 +27,6 @@ class MainPageViewController: UIPageViewController{
     fileprivate func createViewControllers(){
         let homeViewController = HomeViewController()
         pages.append(homeViewController)
-        
-        let analyticsViewController = UIViewController()
-        pages.append(analyticsViewController)
     }
 }
 

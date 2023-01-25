@@ -31,6 +31,7 @@ class FirebaseFireStore{
         do {
             if let index = index {
                 try feeStore.document("fee\(index)").setData(from: fee)
+                fees[index] = fee
             } else {
                 feeCount! += 1
                 try feeStore.document("fee\(feeCount!)").setData(from: fee)
@@ -89,11 +90,18 @@ class FirebaseFireStore{
                 }
             }
         }
-        currentUserData.feeCount = fees.count - 1
+        currentUserData.feeCount = -1
         addDetailsToUser(userDetails: currentUserData)
         
         for index in 0..<fees.count{
             addFeeToUser(fee: fees[index], index: index)
         }
+    }
+    
+    static func clearData(){
+        FirebaseAuthentication.userID = nil
+        currentUserData = User()
+        feeCount = nil
+        fees = [Fee]()
     }
 }

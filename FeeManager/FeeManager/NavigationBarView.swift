@@ -138,20 +138,22 @@ class NavigationBarView: UIView{
         homeButton.isHidden = !buttonTapped
         profileButton.isHidden = !buttonTapped
         currentItemLine.isHidden = !buttonTapped
+        //(feeCreatorCells[feeCreatorCells.count - 1] as! FeeActionTableViewCell).resetButton.isHidden = false
         
         UIView.animate(withDuration: 0.3, animations: { [self] in
             switch buttonTapped{
                 case true:
                     plusButton.transform = CGAffineTransform(rotationAngle: 0)
                     buttonTapped = false
-                    delegates.main.addFee(type: .hide, data: feeCreatorData)
+                    delegates.main.addFee(type: .hide, data: feeCreatorData, completion: {finished in
                     delegates.feeCreator.resetTable()
-                    customContainerView!.removeFromSuperview()
+                    self.customContainerView!.removeFromSuperview()
                     fee = Fee()
+                })
                 case false:
                     plusButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
                     buttonTapped = true
-                    delegates.main.addFee(type: .show, data: feeCreatorData)
+                    delegates.main.addFee(type: .show, data: feeCreatorData, completion: {finished in})
             }
         })
     }
@@ -180,7 +182,7 @@ class NavigationBarView: UIView{
                 case false:
                     plusButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
                     buttonTapped = true
-                delegates.main.accountView(type: .show)
+                    delegates.main.accountView(type: .show)
             }
         })
     }
@@ -213,9 +215,13 @@ extension NavigationBarView: NavigationBarViewDelegate{
         plusButtonAction()
     }
     
-    func customFeeCreator(data: FeeCreator){
+    func customFeeCreator(data: FeeCreator, completion: @escaping (_ finished: Bool) -> Void){
         plusButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
         buttonTapped = true
-        delegates.main.addFee(type: .show, data: data)
+        delegates.main.addFee(type: .show, data: data, completion: {finished in
+            if finished{
+                completion(true)
+            }
+        })
     }
 }

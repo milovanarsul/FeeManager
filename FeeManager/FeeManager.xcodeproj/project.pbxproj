@@ -183,8 +183,8 @@
 				3405644729743E1700A5CCF1 /* OnboardingCards.swift */,
 				34135E1D297554EC0055F198 /* AccountPage.swift */,
 				34135E1B29754DDF0055F198 /* CustomTextField.swift */,
-				34BEB60D297A89F6000AC02E /* Fees */,
 				34C6FF7E297ECBCB00E70182 /* User.swift */,
+				34BEB60D297A89F6000AC02E /* Fees */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -194,8 +194,8 @@
 			children = (
 				34135E13297545D40055F198 /* AccountViewController.swift */,
 				34FFF7F2297943AB002D63FB /* AuthentificationError.swift */,
+				34F347A5298081DD002E0CD3 /* AccountViewerViewController.swift */,
 				34135E1F297555730055F198 /* Table View Cells */,
-				34F347A429808189002E0CD3 /* AccountViewer */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -395,14 +395,6 @@
 				34C6FF80297ECF0400E70182 /* FirebaseFireStore.swift */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		34F347A429808189002E0CD3 /* AccountViewer */ = {
-			isa = PBXGroup;
-			children = (
-				34F347A5298081DD002E0CD3 /* AccountViewerViewController.swift */,
-			);
-			path = AccountViewer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
